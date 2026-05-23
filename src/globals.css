@@ -1,0 +1,424 @@
+/* ─────────────────────────────────────────────
+   Golden Line — globals.css
+   مستخرج من ملف PDF الأصلي (Illustrator 30.1)
+   الخط الأصلي: Neue Haas Grotesk → بديل: DM Sans
+   اللون الأساسي: PANTONE 451 C → #A89060
+───────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Almarai:wght@300;400;700&display=swap');
+
+:root {
+  --bg-main:    #0A0A0A;
+  --bg-section: #111111;
+  --bg-card:    #1A1A1A;
+  --bg-field:   #0D0D0D;
+  --bg-light:   #F5F5F3;
+
+  --gold:       #A89060;
+  --gold-light: #C8B88A;
+  --olive:      #4A5A3A;
+  --olive-dark: #3A4A2E;
+
+  --text-primary:   #F0EDE6;
+  --text-muted:     #888070;
+  --text-secondary: #B0A898;
+  --text-gold:      #A89060;
+
+  --border:        #2A2A2A;
+  --border-light:  #E0E0D8;
+
+  --font-en: 'DM Sans', system-ui, sans-serif;
+  --font-ar: 'Almarai', sans-serif;
+
+  /* ── Consistent radius scale ── */
+  --r-frame: 12px;   /* section frames, large panels  */
+  --r-card:  10px;   /* cards, stat blocks, vision box */
+  --r-btn:    8px;   /* buttons, inputs, switchers     */
+  --r-sm:     6px;   /* badges, tags, small chips      */
+
+  --section-pad:    120px 5%;
+  --section-pad-sm:  80px 4%;
+
+  /* ── الهوية الجديدة — زخارف سلمانية هندسية ── */
+  /* الأزرار تحتفظ بشكلها المميز (parallelogram) */
+  --clip-para: polygon(16% 0%, 100% 0%, 84% 100%, 0% 100%);
+  --clip-para-mobile: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+
+  /* إطار الصور — مستطيل نظيف بدون ميلان */
+  --clip-bevel: none;
+  --clip-bevel-mobile: none;
+
+  /* ── خط زخرفي ذهبي يُستخدم كفاصل بين الأقسام ── */
+  --divider-gold: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(168,144,96,0.15) 20%,
+    rgba(168,144,96,0.50) 50%,
+    rgba(168,144,96,0.15) 80%,
+    transparent 100%
+  );
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+
+body {
+  background-color: var(--bg-main);
+  background-image: url('/images/lines-bg.svg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: scroll;
+  color: var(--text-primary);
+  font-family: var(--font-en);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* site is LTR English — DM Sans is the default via body above */
+
+/* ── Diagonal lines — individual absolute elements, not repeating patterns ──
+   منهج: خطوط منفردة طويلة مثل الصورة المرجعية (sample.jpg).
+   كل خط هو span مستقل بزاوية مختلفة.
+   المحتوى يجب أن يكون z-index: 1 فوق هذه الخطوط.
+─────────────────────────────────────────────────────────────────────────── */
+
+/* Container: يغطي الـ section كاملاً ويقص ما يخرج عن الحدود */
+.diagonal-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* القاعدة المشتركة لكل خط */
+.diagonal-line {
+  position: absolute;
+  height: 1px;
+  transform-origin: center;
+}
+
+/* ── مجموعة A: خطوط شبه رأسية (~78° من الأفقي) — بنفس اتجاه الـ parallelogram ── */
+.line-1 {
+  width: 200vw;
+  left: -80vw;
+  top: 50%;
+  background: rgba(255, 255, 255, 0.11);
+  transform: rotate(78deg);
+}
+.line-2 {
+  width: 200vw;
+  left: -50vw;
+  top: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  transform: rotate(78deg);
+}
+.line-3 {
+  width: 200vw;
+  left: -18vw;
+  top: 50%;
+  height: 1.5px;
+  background: rgba(168, 144, 96, 0.09);
+  transform: rotate(78deg);
+}
+
+/* ── مجموعة B: خطوط مائلة أكثر أفقية (~14-22° من الأفقي) — تتقاطع مع A ── */
+.line-4 {
+  width: 200vw;
+  left: -50vw;
+  top: 22%;
+  background: rgba(255, 255, 255, 0.10);
+  transform: rotate(-18deg);
+}
+.line-5 {
+  width: 200vw;
+  left: -50vw;
+  top: 62%;
+  background: rgba(168, 144, 96, 0.08);
+  transform: rotate(-14deg);
+}
+.line-6 {
+  width: 200vw;
+  left: -50vw;
+  bottom: 12%;
+  background: rgba(255, 255, 255, 0.07);
+  transform: rotate(-22deg);
+}
+
+/* ── Shared beveled image frame ──────────────
+   Use on image wrapper elements.
+   All cards → same direction, no alternation.
+───────────────────────────────────────────── */
+.img-bevel {
+  clip-path: var(--clip-bevel);
+  overflow: hidden;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .img-bevel {
+    clip-path: var(--clip-bevel-mobile);
+  }
+}
+
+/* ── Section typography ─────────────────── */
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: 12px;
+  display: block;
+}
+.section-title {
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.section-body {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 560px;
+  text-align: justify;
+}
+
+/* ── Buttons — clean rectangle, no tilt ─── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  background: var(--gold);
+  color: #0A0A0A;
+  font-family: var(--font-en);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--r-btn);
+  cursor: pointer;
+  text-decoration: none;
+  clip-path: none;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+/* Bottom accent line */
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: rgba(0,0,0,0.20);
+  transition: width 0.4s ease;
+}
+.btn-primary:hover::before { width: 100%; }
+/* Shimmer sweep */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255,255,255,0.28) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.65s ease;
+  pointer-events: none;
+}
+.btn-primary:hover::after  { transform: translateX(120%); }
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(168,144,96,0.40);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 36px;
+  background: transparent;
+  color: var(--gold);
+  font-family: var(--font-en);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  border: 1px solid var(--gold);
+  border-radius: var(--r-btn);
+  cursor: pointer;
+  text-decoration: none;
+  clip-path: none;
+  transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s, border-color 0.3s;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+/* Fill animation on hover */
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(168,144,96,0.10);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.btn-outline:hover::before { transform: scaleX(1); }
+/* Shimmer sweep */
+.btn-outline::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(168,144,96,0.20) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.65s ease;
+  pointer-events: none;
+}
+.btn-outline:hover::after  { transform: translateX(120%); }
+.btn-outline:hover {
+  border-color: var(--gold-light);
+  color: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(168,144,96,0.18);
+}
+
+/* ── Form fields ─────────────────────────── */
+.field-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.field-input { border-radius: var(--r-btn);
+  width: 100%;
+  background: var(--bg-field);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-family: var(--font-en);
+  font-size: 13px;
+  padding: 13px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+.field-input:focus  { border-color: var(--gold); }
+.field-input::placeholder { color: #444; }
+
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+::selection { background: rgba(168,144,96,0.25); }
+
+@media (max-width: 768px) {
+  :root { --section-pad: 80px 4%; }
+}
+
+/* ── Floating image — PDF style ──────────────
+   Applied via drop-shadow on the clip container.
+   Use on .sc-img and .pc-img wrappers.
+   Never use box-shadow (doesn't respect clip-path).
+   drop-shadow follows the clipped shape exactly.
+───────────────────────────────────────────── */
+.img-float-shadow {
+  filter:
+    drop-shadow(0 16px 40px rgba(0,0,0,0.70))
+    drop-shadow(0  4px 12px rgba(0,0,0,0.50));
+}
+.img-float-shadow:hover {
+  filter:
+    drop-shadow(0 24px 56px rgba(0,0,0,0.85))
+    drop-shadow(0  6px 18px rgba(0,0,0,0.60));
+}
+
+/* ══════════════════════════════════════════
+   SectionFrame — shared panel style used in every section
+   Wrap section content (not the <section> tag) with SectionFrame.
+══════════════════════════════════════════ */
+.sframe {
+  position: relative;
+  margin: 0 auto;
+  border: 1px solid rgba(168,144,96,0.15);
+  border-radius: 12px;
+  background: rgba(168,144,96,0.018);
+}
+
+/* ── 4 curved corner bracket accents ── */
+.sframe-c {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.sframe-tl {
+  top:  -1px;
+  left: -1px;
+  border-top:  2px solid rgba(168,144,96,0.65);
+  border-left: 2px solid rgba(168,144,96,0.65);
+  border-top-left-radius: 12px;
+}
+.sframe-tr {
+  top:   -1px;
+  right: -1px;
+  border-top:   2px solid rgba(168,144,96,0.65);
+  border-right: 2px solid rgba(168,144,96,0.65);
+  border-top-right-radius: 12px;
+}
+.sframe-bl {
+  bottom: -1px;
+  left:   -1px;
+  border-bottom: 2px solid rgba(168,144,96,0.45);
+  border-left:   2px solid rgba(168,144,96,0.45);
+  border-bottom-left-radius: 12px;
+}
+.sframe-br {
+  bottom: -1px;
+  right:  -1px;
+  border-bottom: 2px solid rgba(168,144,96,0.45);
+  border-right:  2px solid rgba(168,144,96,0.45);
+  border-bottom-right-radius: 12px;
+}
+
+/* ── Global text justification ──────────────
+   يشمل كل فقرات الوصف في جميع الأقسام
+─────────────────────────────────────────── */
+.about-body,
+.about-vision-body,
+.hero-body,
+.cta-body,
+.contact-form-sub,
+.why-body,
+.tm-quote,
+.contact-item-value {
+  text-align: justify;
+}
+
+/* الفقرات العامة داخل الأقسام */
+.about-text p,
+.contact-info p,
+.why-text p {
+  text-align: justify;
+}
