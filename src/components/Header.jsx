@@ -9,9 +9,26 @@ const NAV_LINKS = [
   { label: 'Contact',   href: '#contact'   },
 ];
 
+function applyLang(lang) {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+}
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [lang, setLang] = useState(() => {
+    const saved = localStorage.getItem('gl-lang') || 'en';
+    applyLang(saved);
+    return saved;
+  });
+
+  const toggleLang = () => {
+    const next = lang === 'en' ? 'ar' : 'en';
+    localStorage.setItem('gl-lang', next);
+    applyLang(next);
+    setLang(next);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -207,9 +224,11 @@ export default function Header() {
           font-size: 10px;
           letter-spacing: 0.12em;
         }
+        .gl-lang { cursor: pointer; }
         .gl-lang-active { color: #A89060; font-weight: 500; }
         .gl-lang-sep { color: #333; }
-        .gl-lang-other { color: #555; }
+        .gl-lang-other { color: #555; transition: color 0.2s; }
+        .gl-lang:hover .gl-lang-other { color: #A89060; }
         @media (max-width: 1024px) { .gl-lang { display: none; } }
 
         .gl-burger {
@@ -326,10 +345,10 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="gl-lang" aria-label="Language">
-          <span className="gl-lang-active">EN</span>
+        <div className="gl-lang" role="button" tabIndex={0} aria-label="Switch language" onClick={toggleLang} onKeyDown={e => e.key === 'Enter' && toggleLang()}>
+          <span className={lang === 'en' ? 'gl-lang-active' : 'gl-lang-other'}>EN</span>
           <span className="gl-lang-sep">|</span>
-          <span className="gl-lang-other">AR</span>
+          <span className={lang === 'ar' ? 'gl-lang-active' : 'gl-lang-other'}>AR</span>
         </div>
 
         <button
