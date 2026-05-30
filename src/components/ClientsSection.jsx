@@ -1,3 +1,6 @@
+import { useLang } from '../context/LangContext';
+import { T, tr } from '../lib/translations';
+
 const LOGOS = [
   { src: '/images/client-01.png', alt: 'Saudi Aramco' },
   { src: '/images/client-02.png', alt: 'Saudi Football Federation' },
@@ -12,6 +15,7 @@ const LOGOS = [
 ];
 
 export default function ClientsSection() {
+  const { lang } = useLang();
   return (
     <>
       <style>{`
@@ -165,8 +169,8 @@ export default function ClientsSection() {
 
       <section className="cl" aria-label="Our success partners">
         <div className="cl-header">
-          <span className="cl-eyebrow">Trusted Clients</span>
-          <h2 className="cl-title">Success Partners</h2>
+          <span className="cl-eyebrow">{tr(T.clients.eyebrow, lang)}</span>
+          <h2 className="cl-title">{tr(T.clients.title, lang)}</h2>
         </div>
 
         <div className="cl-marquee">

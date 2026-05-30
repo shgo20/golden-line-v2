@@ -1,11 +1,14 @@
 import IslamicPattern from './IslamicPattern';
 import SectionFrame from './SectionFrame';
+import { useLang } from '../context/LangContext';
+import { T, tr } from '../lib/translations';
 
 const REASONS = [
   {
     num: '01',
-    title: 'Design & Execution Excellence',
+    title: 'Design & Execution Excellence', titleAr: 'التميّز في التصميم والتنفيذ',
     body: 'Our team blends creative design with engineering expertise to craft pieces that precisely reflect our clients\' identity and the significance of every occasion.',
+    bodyAr: 'يمزج فريقنا بين التصميم الإبداعي والخبرة الهندسية لصياغة قطع تعكس بدقة هوية عملائنا ومكانة كل مناسبة.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10"/>
@@ -16,8 +19,9 @@ const REASONS = [
   },
   {
     num: '02',
-    title: 'Premium Metal Finishes',
+    title: 'Premium Metal Finishes', titleAr: 'تشطيبات معدنية فاخرة',
     body: 'We apply gold, silver, nickel, and chrome plating to the highest industry standards, with protective layers that guarantee durability and lasting luxury.',
+    bodyAr: 'نطبّق طلاءات الذهب والفضة والنيكل والكروم وفق أعلى المعايير الصناعية، مع طبقات حماية تضمن المتانة والفخامة على المدى الطويل.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17.3l-6.2 4 2.4-7.4L2 9.4h7.6L12 2z"/>
@@ -26,8 +30,9 @@ const REASONS = [
   },
   {
     num: '03',
-    title: 'Fully Bespoke Solutions',
+    title: 'Fully Bespoke Solutions', titleAr: 'حلول مخصصة بالكامل',
     body: 'No off-the-shelf templates — every project is designed from scratch in full collaboration with the client, from concept through to final delivery.',
+    bodyAr: 'لا نماذج جاهزة — كل مشروع يُصمَّم من الصفر بتعاون كامل مع العميل، من الفكرة الأولى حتى التسليم النهائي.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <line x1="4"  y1="21" x2="4"  y2="14"/>
@@ -44,8 +49,9 @@ const REASONS = [
   },
   {
     num: '04',
-    title: 'Official Gift Expertise',
+    title: 'Official Gift Expertise', titleAr: 'خبرة في الهدايا الرسمية',
     body: 'We have fulfilled hundreds of orders for government bodies, sports organizations, and major corporations across Saudi Arabia and beyond.',
+    bodyAr: 'نفّذنا مئات الطلبات للجهات الحكومية والمنظمات الرياضية وكبرى الشركات في المملكة العربية السعودية وخارجها.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <path d="M8 21h8M12 17v4M7 4H4a1 1 0 00-1 1v2a4 4 0 004 4"/>
@@ -56,8 +62,9 @@ const REASONS = [
   },
   {
     num: '05',
-    title: 'Internationally Certified Quality',
+    title: 'Internationally Certified Quality', titleAr: 'جودة معتمدة دولياً',
     body: 'A comprehensive quality system covering raw material selection through to final packaging — every piece leaves our factory meeting exacting standards.',
+    bodyAr: 'منظومة جودة شاملة تبدأ من اختيار المواد الخام حتى التغليف النهائي — كل قطعة تغادر مصنعنا مستوفيةً لأعلى المعايير.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -67,8 +74,9 @@ const REASONS = [
   },
   {
     num: '06',
-    title: 'On-Time Delivery Guarantee',
+    title: 'On-Time Delivery Guarantee', titleAr: 'ضمان التسليم في الموعد',
     body: 'We understand the value of your time. We honor agreed delivery schedules and have the capacity to handle urgent orders with efficiency.',
+    bodyAr: 'ندرك قيمة وقتك. نلتزم بمواعيد التسليم المتفق عليها ولدينا القدرة على التعامل مع الطلبات العاجلة بكفاءة عالية.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10"/>
@@ -79,6 +87,7 @@ const REASONS = [
 ];
 
 export default function WhyChooseUsSection() {
+  const { lang } = useLang();
   return (
     <>
       <style>{`
@@ -219,12 +228,9 @@ export default function WhyChooseUsSection() {
 
         <SectionFrame pad="72px 5%">
         <div className="why-header">
-          <div className="why-eyebrow">Quality &amp; Expertise</div>
-          <h2 className="why-title">Why Choose <strong>Golden Line</strong>?</h2>
-          <p className="why-body">
-            We set quality standards at every stage of manufacturing, making us
-            the first choice for those seeking luxury, precision, and reliability.
-          </p>
+          <div className="why-eyebrow">{tr(T.why.eyebrow, lang)}</div>
+          <h2 className="why-title">{tr(T.why.title1, lang)} <strong>{tr(T.why.title2, lang)}</strong>?</h2>
+          <p className="why-body">{tr(T.why.body, lang)}</p>
         </div>
 
         <div className="why-grid">
@@ -232,8 +238,8 @@ export default function WhyChooseUsSection() {
             <div key={r.title} className="why-card">
               <span className="why-card-num">{r.num}</span>
               <div className="why-card-icon" aria-hidden="true">{r.icon}</div>
-              <h3 className="why-card-title">{r.title}</h3>
-              <p className="why-card-body">{r.body}</p>
+              <h3 className="why-card-title">{lang === 'ar' ? r.titleAr : r.title}</h3>
+              <p className="why-card-body">{lang === 'ar' ? r.bodyAr : r.body}</p>
             </div>
           ))}
         </div>

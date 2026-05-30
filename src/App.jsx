@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import './globals.css';
+import { LangProvider } from './context/LangContext';
 
 import Header            from './components/Header';
 import HeroSection       from './components/HeroSection';
@@ -26,7 +27,8 @@ class ErrorBoundary extends Component {
 
 export default function App() {
   return (
-    <div dir="ltr" lang="en">
+    <LangProvider>
+    <div>
 
       {/* ── Fixed nav ── */}
       <Header />
@@ -73,5 +75,6 @@ export default function App() {
       <WhatsAppButton phone="966123456789" />
 
     </div>
+    </LangProvider>
   );
 }

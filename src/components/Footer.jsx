@@ -1,13 +1,15 @@
 import { contactInfo } from '../data/contact';
 import { images } from '../data/images';
 import IslamicPattern from './IslamicPattern';
+import { useLang } from '../context/LangContext';
+import { T, tr } from '../lib/translations';
 
 const NAV_LINKS = [
-  { label: 'Home',      href: '#hero'      },
-  { label: 'About',     href: '#about'     },
-  { label: 'Services',  href: '#services'  },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Contact',   href: '#contact'   },
+  { key: 'home',      href: '#hero'      },
+  { key: 'about',     href: '#about'     },
+  { key: 'services',  href: '#services'  },
+  { key: 'portfolio', href: '#portfolio' },
+  { key: 'contact',   href: '#contact'   },
 ];
 
 const SOCIAL = [
@@ -24,6 +26,7 @@ const SOCIAL = [
 ];
 
 export default function Footer() {
+  const { lang } = useLang();
   return (
     <>
       <style>{`
@@ -100,7 +103,7 @@ export default function Footer() {
           </a>
           <nav>
             <ul className="footer-nav">
-              {NAV_LINKS.map(l => <li key={l.href}><a href={l.href}>{l.label}</a></li>)}
+              {NAV_LINKS.map(l => <li key={l.href}><a href={l.href}>{tr(T.nav[l.key], lang)}</a></li>)}
             </ul>
           </nav>
         </div>
@@ -121,7 +124,7 @@ export default function Footer() {
         </div>
 
         <p className="footer-copy">
-          © 2015–2026 Golden Line Metal Industries. All rights reserved. &nbsp;|&nbsp;
+          {tr(T.footer.copy, lang)} &nbsp;|&nbsp;
           C.R. {contactInfo.cr} &nbsp;|&nbsp; VAT {contactInfo.vat}
         </p>
       </footer>

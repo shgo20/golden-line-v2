@@ -2,12 +2,14 @@ import { useState, useEffect, useRef } from 'react';
 import { images } from '../data/images';
 import IslamicPattern from './IslamicPattern';
 import SectionFrame from './SectionFrame';
+import { useLang } from '../context/LangContext';
+import { T, tr } from '../lib/translations';
 
 const STATS = [
-  { value: 10,  suffix: '+', label: 'Years of Experience', delay: 0   },
-  { value: 500, suffix: '+', label: 'Projects Delivered',  delay: 140 },
-  { value: 200, suffix: '+', label: 'Trusted Clients',     delay: 280 },
-  { value: 7,   suffix: '',  label: 'Core Services',       delay: 420 },
+  { value: 10,  suffix: '+', labelKey: 'experience', delay: 0   },
+  { value: 500, suffix: '+', labelKey: 'projects',   delay: 140 },
+  { value: 200, suffix: '+', labelKey: 'clients',    delay: 280 },
+  { value: 7,   suffix: '',  labelKey: 'services',   delay: 420 },
 ];
 
 /* ── easing: fast start → gentle stop ── */
@@ -58,7 +60,7 @@ function StatItem({ value, suffix, label, delay, active }) {
         <div className="stat-fill" style={{ width: `${pct}%` }} />
       </div>
 
-      <span className="stat-label">{label}</span>
+      <span className="stat-label">{label}</span>{/* label passed from parent */}
     </div>
   );
 }
@@ -67,6 +69,7 @@ function StatItem({ value, suffix, label, delay, active }) {
    AboutSection
 ══════════════════════════════════════════════════════ */
 export default function AboutSection() {
+  const { lang } = useLang();
   const [triggered, setTriggered] = useState(false);
   const statsRef = useRef(null);
 
@@ -366,39 +369,22 @@ export default function AboutSection() {
               <div className="about-ornament-line right" />
             </div>
 
-            <span className="about-eyebrow">Who We Are</span>
+            <span className="about-eyebrow">{tr(T.about.eyebrow, lang)}</span>
             <h2 className="about-title">
-              Golden Line<br />
-              <strong>Metal Industries</strong>
+              {tr(T.about.title1, lang)}<br />
+              <strong>{tr(T.about.title2, lang)}</strong>
             </h2>
 
-            <p className="about-body">
-              Golden Line Metal Industries Factory is a Saudi manufacturer specializing
-              in the design and production of premium metal trophies, medals, plaques,
-              and luxury gifts. We combine refined craftsmanship, modern production
-              techniques, and elegant finishing to deliver pieces that reflect value,
-              recognition, and prestige.
-            </p>
+            <p className="about-body">{tr(T.about.body1, lang)}</p>
+            <p className="about-body">{tr(T.about.body2, lang)}</p>
+            <p className="about-body">{tr(T.about.body3, lang)}</p>
 
-            <p className="about-body">
-              From the heart of Saudi Arabia, we develop innovative solutions for
-              government entities, sports organizations, educational institutions,
-              and major corporations — with full capability to execute custom projects
-              and exceptional orders.
-            </p>
-
-            <p className="about-body">
-              Our factory employs advanced manufacturing technologies including metal
-              forming, casting, laser cutting, luxury plating (gold, silver, nickel),
-              and meticulous hand finishing.
-            </p>
-
-            <a href="#contact" className="btn-primary">Get in Touch</a>
+            <a href="#contact" className="btn-primary">{tr(T.about.cta, lang)}</a>
 
             {/* ── Animated stats grid ── */}
             <div className="about-stats" ref={statsRef}>
               {STATS.map(s => (
-                <StatItem key={s.label} {...s} active={triggered} />
+                <StatItem key={s.labelKey} {...s} label={tr(T.about[s.labelKey], lang)} active={triggered} />
               ))}
             </div>
           </div>
@@ -417,13 +403,8 @@ export default function AboutSection() {
             </div>
 
             <div className="about-vision">
-              <div className="about-vision-title">Vision &amp; Mission</div>
-              <p className="about-vision-body">
-                We are committed to delivering a complete experience — from design and
-                production to luxury packaging and on-time delivery — making us the
-                trusted partner for those seeking premium metal gifts that endure and
-                commemorate memorable milestones.
-              </p>
+              <div className="about-vision-title">{tr(T.about.visionTitle, lang)}</div>
+              <p className="about-vision-body">{tr(T.about.visionBody, lang)}</p>
             </div>
           </div>
         </div>

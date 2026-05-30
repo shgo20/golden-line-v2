@@ -1,34 +1,22 @@
 import { useState, useEffect } from 'react';
 import { images } from '../data/images';
+import { useLang } from '../context/LangContext';
+import { T, tr } from '../lib/translations';
 
 const NAV_LINKS = [
-  { label: 'Home',      href: '#hero'      },
-  { label: 'About',     href: '#about'     },
-  { label: 'Services',  href: '#services'  },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Contact',   href: '#contact'   },
+  { key: 'home',      href: '#hero'      },
+  { key: 'about',     href: '#about'     },
+  { key: 'services',  href: '#services'  },
+  { key: 'portfolio', href: '#portfolio' },
+  { key: 'contact',   href: '#contact'   },
 ];
 
-function applyLang(lang) {
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-}
-
 export default function Header() {
+  const { lang, switchLang } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [lang, setLang] = useState(() => {
-    const saved = localStorage.getItem('gl-lang') || 'en';
-    applyLang(saved);
-    return saved;
-  });
 
-  const toggleLang = () => {
-    const next = lang === 'en' ? 'ar' : 'en';
-    localStorage.setItem('gl-lang', next);
-    applyLang(next);
-    setLang(next);
-  };
+  const toggleLang = () => switchLang(lang === 'en' ? 'ar' : 'en');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -316,6 +304,19 @@ export default function Header() {
           .gl-nav { display: none; }
           .gl-burger { display: flex; }
         }
+
+        /* ── Arabic typography ── */
+        :root:lang(ar) .gl-nav a,
+        :root:lang(ar) .gl-mobile-nav a {
+          font-family: 'Almarai', sans-serif;
+          font-weight: 700;
+          letter-spacing: 0;
+        }
+        :root:lang(ar) .gl-lang {
+          font-family: 'Almarai', sans-serif;
+          font-weight: 600;
+          letter-spacing: 0;
+        }
       `}</style>
 
       <header className={`gl-header${scrolled ? ' scrolled' : ''}`}>
@@ -339,7 +340,7 @@ export default function Header() {
           <ul className="gl-nav">
             {NAV_LINKS.map(l => (
               <li key={l.href}>
-                <a href={l.href} onClick={close}>{l.label}</a>
+                <a href={l.href} onClick={close}>{tr(T.nav[l.key], lang)}</a>
               </li>
             ))}
           </ul>
@@ -370,7 +371,7 @@ export default function Header() {
         </button>
 
         {NAV_LINKS.map(l => (
-          <a key={l.href} href={l.href} onClick={close}>{l.label}</a>
+          <a key={l.href} href={l.href} onClick={close}>{tr(T.nav[l.key], lang)}</a>
         ))}
       </nav>
     </>

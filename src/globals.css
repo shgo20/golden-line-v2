@@ -5,7 +5,7 @@
    اللون الأساسي: PANTONE 451 C → #A89060
 ───────────────────────────────────────────── */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Almarai:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Almarai:wght@300;400;700;800&display=swap');
 
 :root {
   --bg-main:    #0A0A0A;
@@ -421,4 +421,71 @@ body {
 .contact-info p,
 .why-text p {
   text-align: justify;
+}
+
+/* ── Arabic global typography (Tajawal) ──────
+   يُطبَّق تلقائياً عند تفعيل lang="ar" على <html>
+   يشمل كل العناصر: عناوين، فقرات، أزرار، مدخلات
+─────────────────────────────────────────────── */
+html[lang="ar"] body,
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4,
+html[lang="ar"] h5,
+html[lang="ar"] h6,
+html[lang="ar"] p,
+html[lang="ar"] span,
+html[lang="ar"] a,
+html[lang="ar"] button,
+html[lang="ar"] input,
+html[lang="ar"] textarea,
+html[lang="ar"] label,
+html[lang="ar"] li {
+  font-family: var(--font-ar) !important;
+  letter-spacing: 0 !important;
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3 {
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+html[lang="ar"] h4,
+html[lang="ar"] h5,
+html[lang="ar"] h6 {
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+html[lang="ar"] p,
+html[lang="ar"] body {
+  font-weight: 400;
+  line-height: 1.9;
+}
+
+html[lang="ar"] .btn-primary,
+html[lang="ar"] .btn-outline {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0 !important;
+  text-transform: none;
+}
+
+html[lang="ar"] .section-label {
+  font-weight: 500;
+  letter-spacing: 0.05em !important;
+  text-transform: none;
+}
+
+html[lang="ar"] .section-title {
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+html[lang="ar"] .field-input {
+  font-family: var(--font-ar) !important;
+  font-size: 14px;
 }

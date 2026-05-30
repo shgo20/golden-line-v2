@@ -1,51 +1,48 @@
 import SectionFrame from './SectionFrame';
+import { useLang } from '../context/LangContext';
+import { T, tr } from '../lib/translations';
 
 const TESTIMONIALS = [
   {
     quote: 'Golden Line delivered our National Day trophies with exceptional craftsmanship. The attention to detail in every piece exceeded our expectations.',
-    name: 'Ahmed Al-Rashidi',
-    role: 'Director of Corporate Affairs',
-    company: 'Saudi Aramco',
-    img: '/images/Partners-07.jpg',
+    quoteAr: 'سلّم الخط الذهبي كؤوسنا في اليوم الوطني بحرفية استثنائية. الاهتمام بالتفاصيل في كل قطعة فاق توقعاتنا.',
+    name: 'Ahmed Al-Rashidi', role: 'Director of Corporate Affairs', roleAr: 'مدير الشؤون المؤسسية',
+    company: 'Saudi Aramco', img: '/images/Partners-07.jpg',
   },
   {
     quote: 'We trusted Golden Line with our championship shields, and the result was outstanding. The gold plating quality and precision engraving were exactly what a world-class event demands.',
-    name: 'Khalid Al-Otaibi',
-    role: 'Events Manager',
-    company: 'Saudi Football Federation',
-    img: '/images/Partners-08.jpg',
+    quoteAr: 'وثقنا بالخط الذهبي لتنفيذ دروع البطولة، والنتيجة كانت رائعة. جودة الطلاء الذهبي ودقة النقش كانا بمستوى الفعاليات العالمية.',
+    name: 'Khalid Al-Otaibi', role: 'Events Manager', roleAr: 'مدير الفعاليات',
+    company: 'Saudi Football Federation', img: '/images/Partners-08.jpg',
   },
   {
     quote: 'From concept to final delivery, the team was professional and deeply creative. The commemorative gifts became the highlight of our leadership summit.',
-    name: 'Noura Al-Harbi',
-    role: 'Head of Protocol & Events',
-    company: 'Ministry of Commerce',
-    img: '/images/Partners-09.jpg',
+    quoteAr: 'من الفكرة حتى التسليم، كان الفريق محترفاً وإبداعياً. الهدايا التذكارية أصبحت نجمة قمة القيادة لدينا.',
+    name: 'Noura Al-Harbi', role: 'Head of Protocol & Events', roleAr: 'رئيسة البروتوكول والفعاليات',
+    company: 'Ministry of Commerce', img: '/images/Partners-09.jpg',
   },
   {
     quote: 'Every piece Golden Line creates carries a sense of luxury and purpose. Three consecutive years of partnership and the quality remains consistently outstanding.',
-    name: 'Faisal Al-Dosari',
-    role: 'General Manager',
-    company: 'Al-Marai Group',
-    img: '/images/Partners-10.jpg',
+    quoteAr: 'كل قطعة يصنعها الخط الذهبي تحمل روح الفخامة والهدف. ثلاث سنوات متتالية من الشراكة والجودة لا تتزعزع.',
+    name: 'Faisal Al-Dosari', role: 'General Manager', roleAr: 'المدير العام',
+    company: 'Al-Marai Group', img: '/images/Partners-10.jpg',
   },
   {
     quote: 'A seamless experience from brief to delivery. Their team understood our brand and translated it into trophies that truly represented the prestige of our awards ceremony.',
-    name: 'Sara Al-Mutairi',
-    role: 'Brand Director',
-    company: 'STC',
-    img: '/images/Partners-11.jpg',
+    quoteAr: 'تجربة سلسة من الإحاطة حتى التسليم. استوعب فريقهم هويتنا وترجموها إلى كؤوس تعبّر فعلاً عن مكانة حفل جوائزنا.',
+    name: 'Sara Al-Mutairi', role: 'Brand Director', roleAr: 'مديرة العلامة التجارية',
+    company: 'STC', img: '/images/Partners-11.jpg',
   },
   {
     quote: 'The commemorative shields crafted for our graduation ceremony were nothing short of masterpieces. Guests were genuinely impressed by the level of finish and detail.',
-    name: 'Dr. Abdullah Al-Qahtani',
-    role: 'Academic Affairs',
-    company: 'King Saud University',
-    img: '/images/Partners-12.jpg',
+    quoteAr: 'الدروع التذكارية المصنوعة لحفل التخرج لدينا كانت تحفاً فنية بكل المقاييس. انبهر الحضور بمستوى التشطيب والتفاصيل.',
+    name: 'Dr. Abdullah Al-Qahtani', role: 'Academic Affairs', roleAr: 'الشؤون الأكاديمية',
+    company: 'King Saud University', img: '/images/Partners-12.jpg',
   },
 ];
 
 export default function TestimonialsSection() {
+  const { lang } = useLang();
   return (
     <>
       <style>{`
@@ -240,8 +237,8 @@ export default function TestimonialsSection() {
       <section id="testimonials" className="tm">
         <SectionFrame pad="64px 5%">
         <div className="tm-header">
-          <div className="tm-eyebrow">Client Feedback</div>
-          <h2 className="tm-title">Words from Our <strong>Partners</strong></h2>
+          <div className="tm-eyebrow">{tr(T.testimonials.eyebrow, lang)}</div>
+          <h2 className="tm-title">{tr(T.testimonials.title1, lang)} <strong>{tr(T.testimonials.title2, lang)}</strong></h2>
         </div>
 
         <div className="tm-grid">
@@ -256,7 +253,7 @@ export default function TestimonialsSection() {
                 </div>
 
                 {/* quote body */}
-                <p className="tm-text">{t.quote}</p>
+                <p className="tm-text">{lang === 'ar' ? t.quoteAr : t.quote}</p>
 
                 {/* divider */}
                 <div className="tm-sep" />
@@ -277,7 +274,7 @@ export default function TestimonialsSection() {
                   </div>
                   <div className="tm-info">
                     <div className="tm-name">{t.name}</div>
-                    <div className="tm-role">{t.role}</div>
+                    <div className="tm-role">{lang === 'ar' ? t.roleAr : t.role}</div>
                     <div className="tm-company">{t.company}</div>
                   </div>
                 </div>

@@ -1,62 +1,64 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import IslamicPattern from './IslamicPattern';
 import SectionFrame from './SectionFrame';
+import { useLang } from '../context/LangContext';
+import { T, tr } from '../lib/translations';
 
 const SERVICES = [
   {
-    label: 'Shields & Plaques',
-    title: 'Shields & Commemorative Plaques',
-    imgSrc: '/images/SLAUDER-01.jpg',
-    imgAlt: 'Metal shields and plaques',
+    label: 'Shields & Plaques',      labelAr: 'الدروع والألواح',
+    title: 'Shields & Commemorative Plaques', titleAr: 'الدروع والألواح التذكارية',
+    imgSrc: '/images/SLAUDER-01.jpg', imgAlt: 'Metal shields and plaques',
     desc: 'Custom-designed metal shields in gold, silver & chrome — precision engraved and luxury packaged for any occasion.',
+    descAr: 'دروع معدنية مصممة خصيصاً بتشطيبات الذهب والفضة والكروم — منقوشة بدقة ومعبأة بأسلوب فاخر لكل مناسبة.',
     icon: '🏅',
   },
   {
-    label: 'Trophies & Medals',
-    title: 'Trophies & Medals',
-    imgSrc: '/images/SLAUDER-02.jpg',
-    imgAlt: 'Trophies and medals',
+    label: 'Trophies & Medals',      labelAr: 'الكؤوس والميداليات',
+    title: 'Trophies & Medals',      titleAr: 'الكؤوس والميداليات الرياضية',
+    imgSrc: '/images/SLAUDER-02.jpg', imgAlt: 'Trophies and medals',
     desc: 'Premium metal trophies and custom sports medals in multiple sizes — gold, silver, nickel & chrome plating available.',
+    descAr: 'كؤوس معدنية فاخرة وميداليات رياضية مخصصة بأحجام متعددة — طلاء ذهبي وفضي ونيكل وكروم.',
     icon: '🏆',
   },
   {
-    label: 'Custom Gifts',
-    title: 'Sculptures & Custom Gifts',
-    imgSrc: '/images/SLAUDER-03.jpg',
-    imgAlt: 'Custom sculptures and gifts',
+    label: 'Custom Gifts',           labelAr: 'الهدايا المخصصة',
+    title: 'Sculptures & Custom Gifts', titleAr: 'المجسمات والهدايا المخصصة',
+    imgSrc: '/images/SLAUDER-03.jpg', imgAlt: 'Custom sculptures and gifts',
     desc: 'Official government gifts, 3D sculptures, branded metal logos — fully bespoke, end-to-end luxury solutions.',
+    descAr: 'هدايا حكومية رسمية ومجسمات ثلاثية الأبعاد وشعارات معدنية مخصصة — حلول فاخرة متكاملة.',
     icon: '🎁',
   },
   {
-    label: 'Metal Decor',
-    title: 'Metal Decor & Signage',
-    imgSrc: '/images/SLAUDER-04.jpg',
-    imgAlt: 'Metal decor and signage',
+    label: 'Metal Decor',            labelAr: 'الديكور المعدني',
+    title: 'Metal Decor & Signage',  titleAr: 'الديكور المعدني واللافتات',
+    imgSrc: '/images/SLAUDER-04.jpg', imgAlt: 'Metal decor and signage',
     desc: 'Corporate signage, metal facades for offices and exhibitions — weather-resistant finishes to exact specifications.',
+    descAr: 'لافتات مؤسسية وواجهات معدنية للمكاتب والمعارض — تشطيبات مقاومة للعوامل الجوية وفق المواصفات الدقيقة.',
     icon: '🏛',
   },
   {
-    label: '3D Manufacturing',
-    title: '3D Design & Custom Manufacturing',
-    imgSrc: '/images/SLAUDER-05.jpg',
-    imgAlt: '3D design and manufacturing',
+    label: '3D Manufacturing',       labelAr: 'التصنيع ثلاثي الأبعاد',
+    title: '3D Design & Custom Manufacturing', titleAr: 'التصميم ثلاثي الأبعاد والتصنيع المخصص',
+    imgSrc: '/images/SLAUDER-05.jpg', imgAlt: '3D design and manufacturing',
     desc: 'Pre-production 3D renders, one-of-a-kind metal pieces, national and sports event projects — quality assured.',
+    descAr: 'نماذج ثلاثية الأبعاد قبل الإنتاج، قطع معدنية فريدة، مشاريع الفعاليات الوطنية والرياضية — بجودة مضمونة.',
     icon: '⚙️',
   },
   {
-    label: 'Awards & Medals',
-    title: 'Awards & Recognition Medals',
-    imgSrc: '/images/SLAUDER-06.jpg',
-    imgAlt: 'Awards and recognition medals',
+    label: 'Awards & Medals',        labelAr: 'الجوائز والأوسمة',
+    title: 'Awards & Recognition Medals', titleAr: 'جوائز التكريم والأوسمة',
+    imgSrc: '/images/SLAUDER-06.jpg', imgAlt: 'Awards and recognition medals',
     desc: 'Bespoke recognition awards for government, corporate, and sports events — premium finishes to brief.',
+    descAr: 'جوائز تكريم مخصصة للفعاليات الحكومية والمؤسسية والرياضية — تشطيبات فاخرة وفق المتطلبات.',
     icon: '🎖',
   },
   {
-    label: 'Luxury Gifts',
-    title: 'Luxury Metal Gift Pieces',
-    imgSrc: '/images/SLAUDER-07.jpg',
-    imgAlt: 'Luxury metal gift pieces',
+    label: 'Luxury Gifts',           labelAr: 'الهدايا الفاخرة',
+    title: 'Luxury Metal Gift Pieces', titleAr: 'الهدايا المعدنية الفاخرة',
+    imgSrc: '/images/SLAUDER-07.jpg', imgAlt: 'Luxury metal gift pieces',
     desc: 'Exclusive metal gifts for VIP occasions and official delegations — crafted to the highest luxury standards.',
+    descAr: 'هدايا معدنية حصرية للمناسبات البروتوكولية والوفود الرسمية — مصنوعة وفق أعلى معايير الفخامة.',
     icon: '✨',
   },
 ];
@@ -64,6 +66,7 @@ const SERVICES = [
 const N = SERVICES.length;
 
 export default function ServicesSection() {
+  const { lang } = useLang();
   const [variant, setVariant] = useState(1);
   const [active, setActive]   = useState(0);
   const [paused, setPaused]   = useState(false);
@@ -438,8 +441,8 @@ export default function ServicesSection() {
 
         <SectionFrame pad="60px 0 52px">
         <div className="sv-header">
-          <div className="sv-eyebrow">Our Services</div>
-          <h2 className="sv-title">What We <strong>Craft</strong></h2>
+          <div className="sv-eyebrow">{tr(T.services.eyebrow, lang)}</div>
+          <h2 className="sv-title">{tr(T.services.title1, lang)} <strong>{tr(T.services.title2, lang)}</strong></h2>
         </div>
 
         {/* ── Layout Switcher ── */}
@@ -503,7 +506,7 @@ export default function ServicesSection() {
                   onMouseEnter={() => setActive(i)}
                 >
                   <span className="sv1-num">0{i + 1}</span>
-                  <span className="sv1-name">{s.label}</span>
+                  <span className="sv1-name">{lang === 'ar' ? s.labelAr : s.label}</span>
                 </button>
               ))}
             </div>
@@ -518,10 +521,9 @@ export default function ServicesSection() {
               </div>
               <div>
                 <div className="sv1-detail-title">
-                  {SERVICES[active].title.split(' ').slice(0, -1).join(' ')}{' '}
-                  <strong>{SERVICES[active].title.split(' ').slice(-1)}</strong>
+                  {lang === 'ar' ? SERVICES[active].titleAr : SERVICES[active].title}
                 </div>
-                <p className="sv1-detail-desc">{SERVICES[active].desc}</p>
+                <p className="sv1-detail-desc">{lang === 'ar' ? SERVICES[active].descAr : SERVICES[active].desc}</p>
               </div>
               <div className="sv1-arrow-row">
                 <button className="sv1-arrow" onClick={prev} aria-label="Previous">
@@ -548,7 +550,7 @@ export default function ServicesSection() {
                   <img src={s.imgSrc} alt={s.imgAlt} />
                   <div className="sv2-overlay">
                     <span className="sv2-num">0{i + 1}</span>
-                    <div className="sv2-card-name">{s.label}</div>
+                    <div className="sv2-card-name">{lang === 'ar' ? s.labelAr : s.label}</div>
                     {i === 0 && <p className="sv2-desc">{s.desc}</p>}
                     {i !== 0 && <p className="sv2-desc">{s.desc}</p>}
                   </div>
@@ -570,9 +572,9 @@ export default function ServicesSection() {
                 <img src={s.imgSrc} alt={s.imgAlt} />
                 <div className="sv3-overlay" />
                 <div className="sv3-content">
-                  <span className="sv3-num">0{i + 1} / 0{N} — {s.label}</span>
-                  <h3 className="sv3-title">{s.title}</h3>
-                  <p className="sv3-desc">{s.desc}</p>
+                  <span className="sv3-num">0{i + 1} / 0{N} — {lang === 'ar' ? s.labelAr : s.label}</span>
+                  <h3 className="sv3-title">{lang === 'ar' ? s.titleAr : s.title}</h3>
+                  <p className="sv3-desc">{lang === 'ar' ? s.descAr : s.desc}</p>
                 </div>
               </div>
             ))}

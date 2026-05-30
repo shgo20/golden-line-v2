@@ -1,4 +1,6 @@
 import { useEffect, useRef } from 'react';
+import { useLang } from '../context/LangContext';
+import { T, tr } from '../lib/translations';
 import IslamicPattern from './IslamicPattern';
 
 /*
@@ -88,6 +90,7 @@ const turbSway = (amp, freq, pos) =>
   );
 
 export default function HeroSection() {
+  const { lang } = useLang();
   const heroRef    = useRef(null);
   const letterRefs = useRef([]);
   const mouseRef   = useRef({ x: 0, y: 0 });
@@ -466,24 +469,17 @@ export default function HeroSection() {
         <div className="hero-geo-bottom-border" />
 
         <div className="hero-inner">
-          <span className="hero-eyebrow">
-            ◆ &nbsp; Saudi-Based Premier Metal Awards Manufacturer
-          </span>
+          <span className="hero-eyebrow">{tr(T.hero.eyebrow, lang)}</span>
           <h1 className="hero-h1">
-            Crafting<br />
-            <strong>Excellence</strong>
+            {tr(T.hero.h1Line1, lang)}<br />
+            <strong>{tr(T.hero.h1Strong, lang)}</strong>
           </h1>
-          <p className="hero-h1-sub">Awards · Plaques · Trophies · Luxury Gifts</p>
-          <p className="hero-body">
-            Golden Line Metal Industries is a leading Saudi factory specializing
-            in the design and production of premium metal trophies, medals,
-            plaques, and luxury gifts — combining master craftsmanship with
-            precision engineering.
-          </p>
+          <p className="hero-h1-sub">{tr(T.hero.sub, lang)}</p>
+          <p className="hero-body">{tr(T.hero.body, lang)}</p>
           <div className="hero-buttons">
             <a href="#portfolio" className="btn-primary">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-              Explore Our Work
+              {tr(T.hero.cta, lang)}
             </a>
           </div>
         </div>

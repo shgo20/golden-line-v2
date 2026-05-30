@@ -1,63 +1,65 @@
 import { useState, useEffect, useCallback } from 'react';
 import { images } from '../data/images';
 import PdfFlipbook from './PdfFlipbook';
+import { useLang } from '../context/LangContext';
+import { T, tr } from '../lib/translations';
 
 const PORTFOLIO = [
   {
-    badge: 'Trophy',
-    title: 'National Foundation Day Trophy',
+    badge: 'Trophy', badgeAr: 'كأس',
+    title: 'National Foundation Day Trophy', titleAr: 'كأس يوم التأسيس الوطني',
     client: 'Golden Line',
     specs: 'Gold-plated brass · Engraving & forming · Premium leather box',
-    imgSrc: images.portfolio.p01,
-    profileUrl: '/images/Trophy-01.pdf',
+    specsAr: 'نحاس مطلي بالذهب · نقش وتشكيل · علبة جلد فاخرة',
+    imgSrc: images.portfolio.p01, profileUrl: '/images/Trophy-01.pdf',
   },
   {
-    badge: 'Coin',
-    title: 'Commemorative Coin',
+    badge: 'Coin', badgeAr: 'عملة تذكارية',
+    title: 'Commemorative Coin', titleAr: 'عملة تذكارية',
     client: 'Riyadh Metro',
     specs: 'Gold-plated brass · Engraving & forming · Leather case',
-    imgSrc: images.portfolio.p02,
-    profileUrl: '/images/Trophy-02.pdf',
+    specsAr: 'نحاس مطلي بالذهب · نقش وتشكيل · علبة جلدية',
+    imgSrc: images.portfolio.p02, profileUrl: '/images/Trophy-02.pdf',
   },
   {
-    badge: 'Plaque',
-    title: 'Honor Shield',
+    badge: 'Plaque', badgeAr: 'درع',
+    title: 'Honor Shield', titleAr: 'درع الشرف',
     client: 'King Salman Air College',
     specs: 'Oxidized gold brass · Relief & engraving · Luxury packaging',
-    imgSrc: images.portfolio.p03,
-    profileUrl: '/images/Trophy-03.pdf',
+    specsAr: 'نحاس ذهبي مؤكسد · بارز ونقش · تغليف فاخر',
+    imgSrc: images.portfolio.p03, profileUrl: '/images/Trophy-03.pdf',
   },
   {
-    badge: 'Trophy',
-    title: 'Sports Trophy',
+    badge: 'Trophy', badgeAr: 'كأس',
+    title: 'Sports Trophy', titleAr: 'كأس رياضي',
     client: 'Riyadh Metro',
     specs: 'Gold-plated brass · Custom engraving · Leather case',
-    imgSrc: images.portfolio.p04,
-    profileUrl: '/images/Trophy-04.pdf',
+    specsAr: 'نحاس مطلي بالذهب · نقش مخصص · علبة جلدية',
+    imgSrc: images.portfolio.p04, profileUrl: '/images/Trophy-04.pdf',
   },
   {
-    badge: 'Award Plaque',
-    title: 'Gift of Honor',
+    badge: 'Award Plaque', badgeAr: 'لوح تكريم',
+    title: 'Gift of Honor', titleAr: 'هدية الشرف',
     client: 'Air Intelligence Authority',
     specs: 'Oxidized brass logo · Relief & engraved inscription',
-    imgSrc: images.portfolio.p05,
-    profileUrl: '/images/Trophy-05.pdf',
+    specsAr: 'شعار نحاسي مؤكسد · نقش بارز وكتابي',
+    imgSrc: images.portfolio.p05, profileUrl: '/images/Trophy-05.pdf',
   },
   {
-    badge: 'Trophy',
-    title: 'Handcrafted Trophy',
+    badge: 'Trophy', badgeAr: 'كأس',
+    title: 'Handcrafted Trophy', titleAr: 'كأس يدوي الصنع',
     client: 'Falcons Club',
     specs: 'Gold brass · Master craftsmanship · Acrylic base',
-    imgSrc: images.portfolio.p06,
-    profileUrl: '/images/Trophy-06.pdf',
+    specsAr: 'نحاس ذهبي · حرفية عالية · قاعدة أكريليك',
+    imgSrc: images.portfolio.p06, profileUrl: '/images/Trophy-06.pdf',
   },
   {
-    badge: 'Trophy',
-    title: 'Prestige Award Trophy',
+    badge: 'Trophy', badgeAr: 'كأس',
+    title: 'Prestige Award Trophy', titleAr: 'كأس جائزة المكانة',
     client: 'Golden Line',
     specs: 'Gold-plated brass · Premium finish · Luxury packaging',
-    imgSrc: images.portfolio.p07,
-    profileUrl: '/images/Trophy-07.pdf',
+    specsAr: 'نحاس مطلي بالذهب · تشطيب فاخر · تغليف احترافي',
+    imgSrc: images.portfolio.p07, profileUrl: '/images/Trophy-07.pdf',
   },
 ];
 
@@ -66,6 +68,7 @@ const N = PORTFOLIO.length;
 function mod(n, m) { return ((n % m) + m) % m; }
 
 export default function PortfolioSection() {
+  const { lang } = useLang();
   const [active,     setActive]     = useState(0);
   const [paused,     setPaused]     = useState(false);
   const [modalItem,  setModalItem]  = useState(null); // snapshot of the item whose PDF is open
@@ -769,13 +772,9 @@ export default function PortfolioSection() {
 
         {/* Header */}
         <div className="pf-header">
-          <span className="pf-eyebrow">Portfolio</span>
-          <h2 className="pf-title">Our Work</h2>
-          <p className="pf-subtitle">
-            A curated selection reflecting our expertise in premium metal trophies,
-            medals, plaques, and gifts for government, sports, and corporate clients
-            across Saudi Arabia.
-          </p>
+          <span className="pf-eyebrow">{tr(T.portfolio.eyebrow, lang)}</span>
+          <h2 className="pf-title">{tr(T.portfolio.title, lang)}</h2>
+          <p className="pf-subtitle">{tr(T.portfolio.subtitle, lang)}</p>
         </div>
 
         {/* Cover Flow Stage */}
@@ -812,7 +811,7 @@ export default function PortfolioSection() {
                       }
                       {/* Small label only on non-center cards */}
                       {offset !== 0 && (
-                        <span className="pf-card-label">{item.badge}</span>
+                        <span className="pf-card-label">{lang === 'ar' ? item.badgeAr : item.badge}</span>
                       )}
                       {/* Hover overlay with CTA — center card only */}
                       {offset === 0 && item.profileUrl && (
@@ -825,7 +824,7 @@ export default function PortfolioSection() {
                               <rect x="1" y="1" width="10" height="10" rx="1"/>
                               <path d="M3.5 4.5h5M3.5 6.5h5M3.5 8.5h3" strokeLinecap="round"/>
                             </svg>
-                            View Project Profile
+                            {tr(T.portfolio.viewProfile, lang)}
                           </button>
                         </div>
                       )}
@@ -840,10 +839,10 @@ export default function PortfolioSection() {
 
         {/* Active item info — updates on slide change */}
         <div className="pf-info" key={active}>
-          <span className="pf-info-badge">{cur.badge}</span>
-          <h3 className="pf-info-title">{cur.title}</h3>
+          <span className="pf-info-badge">{lang === 'ar' ? cur.badgeAr : cur.badge}</span>
+          <h3 className="pf-info-title">{lang === 'ar' ? cur.titleAr : cur.title}</h3>
           <div className="pf-info-client">{cur.client}</div>
-          <p className="pf-info-meta">{cur.specs}</p>
+          <p className="pf-info-meta">{lang === 'ar' ? cur.specsAr : cur.specs}</p>
 
           {cur.profileUrl && (
             <button
@@ -854,7 +853,7 @@ export default function PortfolioSection() {
                 <rect x="1" y="1" width="10" height="10" rx="1"/>
                 <path d="M3.5 4.5h5M3.5 6.5h5M3.5 8.5h3" strokeLinecap="round"/>
               </svg>
-              View Project Profile
+              {tr(T.portfolio.viewProfile, lang)}
             </button>
           )}
         </div>
