@@ -5,7 +5,7 @@
 ───────────────────────────────────────────── */
 
 export const contactInfo = {
-  whatsapp:     'https://wa.me/966599799300',
+  whatsapp:     'https://wa.me/966560341878',
   phone:        '966560341878',
   phoneDisplay: '+966 56 034 1878',
   email:        'info@goldinline.sa',

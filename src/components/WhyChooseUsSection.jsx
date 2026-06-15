@@ -6,7 +6,7 @@ import { T, tr } from '../lib/translations';
 const REASONS = [
   {
     num: '01',
-    title: 'Design & Execution Excellence', titleAr: 'التميّز في التصميم والتنفيذ',
+    title: 'Design & Execution Excellence', titleAr: 'التميّـز في التصميـم والتنفيـذ',
     body: 'Our team blends creative design with engineering expertise to craft pieces that precisely reflect our clients\' identity and the significance of every occasion.',
     bodyAr: 'يمزج فريقنا بين التصميم الإبداعي والخبرة الهندسية لصياغة قطع تعكس بدقة هوية عملائنا ومكانة كل مناسبة.',
     icon: (
@@ -19,7 +19,7 @@ const REASONS = [
   },
   {
     num: '02',
-    title: 'Premium Metal Finishes', titleAr: 'تشطيبات معدنية فاخرة',
+    title: 'Premium Metal Finishes', titleAr: 'تشطيبـات معدنيـة فاخـرة',
     body: 'We apply gold, silver, nickel, and chrome plating to the highest industry standards, with protective layers that guarantee durability and lasting luxury.',
     bodyAr: 'نطبّق طلاءات الذهب والفضة والنيكل والكروم وفق أعلى المعايير الصناعية، مع طبقات حماية تضمن المتانة والفخامة على المدى الطويل.',
     icon: (
@@ -30,7 +30,7 @@ const REASONS = [
   },
   {
     num: '03',
-    title: 'Fully Bespoke Solutions', titleAr: 'حلول مخصصة بالكامل',
+    title: 'Fully Bespoke Solutions', titleAr: 'حلـول مخصصـة بالكامـل',
     body: 'No off-the-shelf templates — every project is designed from scratch in full collaboration with the client, from concept through to final delivery.',
     bodyAr: 'لا نماذج جاهزة — كل مشروع يُصمَّم من الصفر بتعاون كامل مع العميل، من الفكرة الأولى حتى التسليم النهائي.',
     icon: (
@@ -49,7 +49,7 @@ const REASONS = [
   },
   {
     num: '04',
-    title: 'Official Gift Expertise', titleAr: 'خبرة في الهدايا الرسمية',
+    title: 'Official Gift Expertise', titleAr: 'خبـرة في الهدايـا الرسميـة',
     body: 'We have fulfilled hundreds of orders for government bodies, sports organizations, and major corporations across Saudi Arabia and beyond.',
     bodyAr: 'نفّذنا مئات الطلبات للجهات الحكومية والمنظمات الرياضية وكبرى الشركات في المملكة العربية السعودية وخارجها.',
     icon: (
@@ -62,7 +62,7 @@ const REASONS = [
   },
   {
     num: '05',
-    title: 'Internationally Certified Quality', titleAr: 'جودة معتمدة دولياً',
+    title: 'Internationally Certified Quality', titleAr: 'جـودة معتمـدة دوليـاً',
     body: 'A comprehensive quality system covering raw material selection through to final packaging — every piece leaves our factory meeting exacting standards.',
     bodyAr: 'منظومة جودة شاملة تبدأ من اختيار المواد الخام حتى التغليف النهائي — كل قطعة تغادر مصنعنا مستوفيةً لأعلى المعايير.',
     icon: (
@@ -74,7 +74,7 @@ const REASONS = [
   },
   {
     num: '06',
-    title: 'On-Time Delivery Guarantee', titleAr: 'ضمان التسليم في الموعد',
+    title: 'On-Time Delivery Guarantee', titleAr: 'ضمـان التسليـم في الموعـد',
     body: 'We understand the value of your time. We honor agreed delivery schedules and have the capacity to handle urgent orders with efficiency.',
     bodyAr: 'ندرك قيمة وقتك. نلتزم بمواعيد التسليم المتفق عليها ولدينا القدرة على التعامل مع الطلبات العاجلة بكفاءة عالية.',
     icon: (

@@ -1,6 +1,7 @@
-import { Component } from 'react';
+import { Component, useState } from 'react';
 import './globals.css';
 import { LangProvider } from './context/LangContext';
+import CareersPage from './components/CareersPage';
 
 import Header            from './components/Header';
 import HeroSection       from './components/HeroSection';
@@ -26,12 +27,25 @@ class ErrorBoundary extends Component {
 }
 
 export default function App() {
+  const [page, setPage] = useState('home');
+
+  const goToCareers = () => { setPage('careers'); window.scrollTo(0,0); };
+  const goHome      = () => { setPage('home');    window.scrollTo(0,0); };
+
+  if (page === 'careers') {
+    return (
+      <LangProvider>
+        <CareersPage onBack={goHome} />
+      </LangProvider>
+    );
+  }
+
   return (
     <LangProvider>
     <div>
 
       {/* ── Fixed nav ── */}
-      <Header />
+      <Header onJoin={goToCareers} />
 
       {/* ── Page sections ── */}
       <main>

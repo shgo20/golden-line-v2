@@ -10,9 +10,9 @@ export const T = {
   },
 
   hero: {
-    eyebrow:  { en: '◆  Saudi-Based Premier Metal Awards Manufacturer', ar: '◆  مصنع سعودي رائد في صناعة الجوائز المعدنية' },
-    h1Line1:  { en: 'Crafting',   ar: 'نصوغ'    },
-    h1Strong: { en: 'Excellence', ar: 'التميّز'  },
+    eyebrow:  { en: '◆  Saudi-Based Premier Metal Awards Manufacturer', ar: '' },
+    h1Line1:  { en: 'Crafting',   ar: 'نصـــوغ '    },
+    h1Strong: { en: 'Excellence', ar: 'التميّـــز'  },
     sub:      { en: 'Awards · Plaques · Trophies · Luxury Gifts', ar: 'جوائز · دروع · كؤوس · هدايا فاخرة' },
     body:     {
       en: 'Golden Line Metal Industries is a leading Saudi factory specializing in the design and production of premium metal trophies, medals, plaques, and luxury gifts — combining master craftsmanship with precision engineering.',
@@ -23,11 +23,11 @@ export const T = {
 
   about: {
     eyebrow:     { en: 'Who We Are',        ar: 'من نحن'                   },
-    title1:      { en: 'Golden Line',        ar: 'الخط الذهبي'              },
-    title2:      { en: 'Metal Industries',   ar: 'للصناعات المعدنية'        },
+    title1:      { en: 'Golden Line',        ar: 'الخـط الذهبـي '           },
+    title2:      { en: 'Metal Industries',   ar: 'للصناعـات المعدنيـة'      },
     body1: {
       en: 'Golden Line Metal Industries Factory is a Saudi manufacturer specializing in the design and production of premium metal trophies, medals, plaques, and luxury gifts. We combine refined craftsmanship, modern production techniques, and elegant finishing to deliver pieces that reflect value, recognition, and prestige.',
-      ar: 'مصنع الخط الذهبي للصناعات المعدنية — شركة سعودية متخصصة في تصميم وتصنيع الجوائز والدروع والميداليات والهدايا المعدنية الفاخرة. نجمع بين الحرفية الدقيقة وأحدث تقنيات الإنتاج والتشطيب الأنيق لنقدم قطعاً تعكس القيمة والتكريم والمكانة.',
+      ar: 'مصنع الخط الذهبي للصناعات المعدنية — مصنع سعودي متخصص في تصميم وتصنيع الجوائز والدروع والميداليات والهدايا المعدنية الفاخرة. نجمع بين الحرفية الدقيقة وأحدث تقنيات الإنتاج والتشطيب الأنيق لنقدم قطعاً تعكس القيمة والتكريم والمكانة.',
     },
     body2: {
       en: 'From the heart of Saudi Arabia, we develop innovative solutions for government entities, sports organizations, educational institutions, and major corporations — with full capability to execute custom projects and exceptional orders.',
@@ -42,7 +42,7 @@ export const T = {
     projects:    { en: 'Projects Delivered',  ar: 'مشروع منجز'             },
     clients:     { en: 'Trusted Clients',     ar: 'عميل موثوق'             },
     services:    { en: 'Core Services',       ar: 'خدمة متخصصة'            },
-    visionTitle: { en: 'Vision & Mission',    ar: 'رؤيتنا ورسالتنا'        },
+    visionTitle: { en: 'Vision & Mission',    ar: 'رؤيتـــنا  ورسالتـــنا'    },
     visionBody: {
       en: 'We are committed to delivering a complete experience — from design and production to luxury packaging and on-time delivery — making us the trusted partner for those seeking premium metal gifts that endure and commemorate memorable milestones.',
       ar: 'نلتزم بتقديم تجربة متكاملة — من التصميم والتصنيع إلى التغليف الفاخر والتسليم في الموعد — لنكون الشريك الموثوق لمن يسعى إلى هدايا معدنية فاخرة تدوم وتُخلّد لحظات التكريم الاستثنائية.',
@@ -50,9 +50,9 @@ export const T = {
   },
 
   services: {
-    eyebrow: { en: 'Our Services', ar: 'خدماتنا'    },
-    title1:  { en: 'What We',      ar: 'ما نُبدع'   },
-    title2:  { en: 'Craft',        ar: 'في صنعه'    },
+    eyebrow: { en: 'Our Services', ar: 'خدماتنا'         },
+    title1:  { en: 'What We',      ar: 'ما نُبـــدع'    },
+    title2:  { en: 'Craft',        ar: 'في صنـــعه'     },
   },
 
   portfolio: {
@@ -72,8 +72,8 @@ export const T = {
 
   why: {
     eyebrow: { en: 'Quality & Expertise', ar: 'الجودة والخبرة'   },
-    title1:  { en: 'Why Choose',          ar: 'لماذا تختار'      },
-    title2:  { en: 'Golden Line',         ar: 'الخط الذهبي'      },
+    title1:  { en: 'Why Choose',          ar: 'لمـاذا تختـار'    },
+    title2:  { en: 'Golden Line',         ar: 'الخـط الذهبـي'    },
     body: {
       en: 'We set quality standards at every stage of manufacturing, making us the first choice for those seeking luxury, precision, and reliability.',
       ar: 'نضع معايير الجودة في كل مرحلة من مراحل التصنيع، مما يجعلنا الخيار الأول لمن يسعى إلى الفخامة والدقة والموثوقية.',
@@ -115,7 +115,7 @@ export const T = {
     labelEmail:    { en: 'Email',                      ar: 'البريد الإلكتروني'             },
     labelPhone:    { en: 'Phone',                      ar: 'الهاتف'                        },
     whatsapp:      { en: 'Chat on WhatsApp',           ar: 'تواصل عبر واتساب'             },
-    formTitle:     { en: 'Tell us about your project', ar: 'أخبرنا عن مشروعك'            },
+    formTitle:     { en: 'Tell us about your project', ar: 'أخبـــرنا عن مشـــروعك'       },
     formSub: {
       en: 'Fill in the form and a member of our team will get back to you shortly with design proposals and a detailed quote.',
       ar: 'أكمل النموذج وسيتواصل معك أحد أعضاء فريقنا قريباً بمقترحات التصميم وعرض السعر التفصيلي.',

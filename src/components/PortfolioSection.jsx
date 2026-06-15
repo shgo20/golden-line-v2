@@ -7,18 +7,24 @@ import { T, tr } from '../lib/translations';
 const PORTFOLIO = [
   {
     badge: 'Trophy', badgeAr: 'كأس',
-    title: 'National Foundation Day Trophy', titleAr: 'كأس يوم التأسيس الوطني',
-    client: 'Golden Line',
-    specs: 'Gold-plated brass · Engraving & forming · Premium leather box',
-    specsAr: 'نحاس مطلي بالذهب · نقش وتشكيل · علبة جلد فاخرة',
+    title: 'King Abdulaziz Cup for Al-Mazayen', titleAr: 'كأس الملك عبدالعزيز للمزاين',
+    client: 'Saudi Falcons Club',
+    clientAr: 'نادي الصقور السعودي',
+    specs: 'Design and execution of a luxury commemorative cup for the Saudi Falcons Club, embodying authentic Saudi identity and the spirit of excellence.',
+    specsAr: 'تصميم وتنفيذ كأس تكريمي فاخر لنادي الصقور السعودي يجسد الهوية السعودية الأصيلة وروح التميز.',
+    materials: 'Gold-plated brass · Precise metal forming · Luxury base',
+    materialsAr: 'نحاس مطلي بالذهب · تشكيل معدني دقيق · قاعدة فاخرة',
     imgSrc: images.portfolio.p01, profileUrl: '/images/Trophy-01.pdf',
   },
   {
-    badge: 'Coin', badgeAr: 'عملة تذكارية',
-    title: 'Commemorative Coin', titleAr: 'عملة تذكارية',
-    client: 'Riyadh Metro',
-    specs: 'Gold-plated brass · Engraving & forming · Leather case',
-    specsAr: 'نحاس مطلي بالذهب · نقش وتشكيل · علبة جلدية',
+    badge: 'Special Commemorative Gift', badgeAr: 'هدية تذكارية خاصة',
+    title: 'King Khalid International Airport', titleAr: 'مطار الملك خالد الدولي',
+    client: 'HRH Prince Faisal bin Bandar bin Abdulaziz · Governor of Riyadh Region',
+    clientAr: 'سمو الأمير فيصل بن بندر بن عبدالعزيز · أمير منطقة الرياض',
+    specs: 'A luxury commemorative piece crafted for the inauguration of International Terminal (2) and the completion of the international terminals development project, presented to HRH Prince Faisal bin Bandar bin Abdulaziz.',
+    specsAr: 'قطعة تذكارية فاخرة صُنعت بمناسبة افتتاح الصالة الدولية (2) واكتمال مشروع تطوير الصالات الدولية، وأُهديت إلى سمو أمير منطقة الرياض الأمير فيصل بن بندر بن عبدالعزيز.',
+    materials: 'Gold-plated brass · Metal forming & engraving',
+    materialsAr: 'نحاس مطلي بالذهب · تشكيل وحفر معدني',
     imgSrc: images.portfolio.p02, profileUrl: '/images/Trophy-02.pdf',
   },
   {
@@ -38,27 +44,34 @@ const PORTFOLIO = [
     imgSrc: images.portfolio.p04, profileUrl: '/images/Trophy-04.pdf',
   },
   {
-    badge: 'Award Plaque', badgeAr: 'لوح تكريم',
-    title: 'Gift of Honor', titleAr: 'هدية الشرف',
-    client: 'Air Intelligence Authority',
-    specs: 'Oxidized brass logo · Relief & engraved inscription',
-    specsAr: 'شعار نحاسي مؤكسد · نقش بارز وكتابي',
+    badge: 'Special Protocol Gift', badgeAr: 'هدية بروتوكولية خاصة',
+    title: 'Commemorative Plaque of Authentic Saudi Identity', titleAr: 'لوحة تذكارية تجسد ملامح الهوية السعودية الأصيلة',
+    client: 'A Gift from the Special Security Forces',
+    clientAr: 'إهداء من قوات الأمن الخاصة',
+    specs: 'A collection of heritage and cultural symbols carefully crafted within a luxurious frame inspired by Saudi Sadu patterns.',
+    specsAr: 'من خلال مجموعة من الرموز التراثية والثقافية المصاغة بعناية داخل إطار فاخر مستوحى من زخارف السدو السعودي.',
+    materials: 'Premium natural wood · Gold-plated metal elements · Black velvet background',
+    materialsAr: 'خشب طبيعي فاخر · عناصر معدنية مطلية بالذهب · خلفية مخملية سوداء',
     imgSrc: images.portfolio.p05, profileUrl: '/images/Trophy-05.pdf',
   },
   {
-    badge: 'Trophy', badgeAr: 'كأس',
-    title: 'Handcrafted Trophy', titleAr: 'كأس يدوي الصنع',
-    client: 'Falcons Club',
-    specs: 'Gold brass · Master craftsmanship · Acrylic base',
-    specsAr: 'نحاس ذهبي · حرفية عالية · قاعدة أكريليك',
+    badge: '', badgeAr: '',
+    title: 'Ministry of Interior Cup – Season 1447H', titleAr: 'كأس وزارة الداخلية – موسم 1447هـ',
+    client: '',
+    clientAr: '',
+    specs: 'A commemorative piece designed exclusively for the Ministry of Interior championships, with a luxury display box lined with premium fabric.',
+    specsAr: 'قطعة تكريمية صُممت خصيصًا لبطولات وزارة الداخلية، مع صندوق عرض فاخر مبطن بالنسيج الراقي.',
+    materials: 'Luxury gold-plated metal · Metal engraving & forming',
+    materialsAr: 'معدن فاخر مطلي بالذهب · حفر وتشكيل معدني',
     imgSrc: images.portfolio.p06, profileUrl: '/images/Trophy-06.pdf',
   },
   {
-    badge: 'Trophy', badgeAr: 'كأس',
-    title: 'Prestige Award Trophy', titleAr: 'كأس جائزة المكانة',
-    client: 'Golden Line',
-    specs: 'Gold-plated brass · Premium finish · Luxury packaging',
-    specsAr: 'نحاس مطلي بالذهب · تشطيب فاخر · تغليف احترافي',
+    badge: 'Metal Sculpture', badgeAr: 'مجسم معدني',
+    title: 'Al-Masmak Palace & King Salman Air Base Gate', titleAr: 'قصر المصمك مع بوابة قاعدة الملك سلمان الجوية',
+    client: 'A Gift from the Commander of the Royal Forces',
+    clientAr: 'إهداء من قائد القوات الملكية',
+    specs: 'A gift from the Commander of the Air Force to HRH Crown Prince Mohammed bin Salman on the occasion of the inauguration of King Salman Air Base',
+    specsAr: 'إلى ولي العهد سمو الأمير محمد بن سلمان بمناسبة افتتاح قاعدة الملك سلمان الجوية',
     imgSrc: images.portfolio.p07, profileUrl: '/images/Trophy-07.pdf',
   },
 ];
@@ -246,11 +259,10 @@ export default function PortfolioSection() {
           overflow: visible;
           background: transparent;
           padding: 0;
-          border: 1px solid rgba(168,144,96,0.18);
+          border: none;
           transition:
-            filter       0.65s ease,
-            border-color 0.65s ease,
-            box-shadow   0.65s ease;
+            filter    0.65s ease,
+            box-shadow 0.65s ease;
         }
 
         /* inner — clips the actual image */
@@ -282,59 +294,50 @@ export default function PortfolioSection() {
           transform: translateX(120%);
         }
 
-        /* ── 4 corner brackets on the frame ── */
+        /* ── 2 corner brackets — top-left & bottom-right (matches Services style) ── */
         .pf-img-c {
           position: absolute;
-          width: 14px; height: 14px;
+          width: 24px; height: 24px;
           z-index: 3;
           pointer-events: none;
           opacity: 0;
-          transition: opacity 0.5s ease, border-color 0.4s ease;
+          transition: opacity 0.5s ease;
         }
         .pf-img-tl { top: -1px;    left: -1px;
-          border-top:  2px solid #A89060;
-          border-left: 2px solid #A89060; }
-        .pf-img-tr { top: -1px;    right: -1px;
-          border-top:   2px solid #A89060;
-          border-right: 2px solid #A89060; }
-        .pf-img-bl { bottom: -1px; left: -1px;
-          border-bottom: 2px solid rgba(168,144,96,0.70);
-          border-left:   2px solid rgba(168,144,96,0.70); }
+          border-top:  1px solid #A89060;
+          border-left: 1px solid #A89060; }
+        .pf-img-tr { display: none; }
+        .pf-img-bl { display: none; }
         .pf-img-br { bottom: -1px; right: -1px;
-          border-bottom: 2px solid rgba(168,144,96,0.70);
-          border-right:  2px solid rgba(168,144,96,0.70); }
+          border-bottom: 1px solid #A89060;
+          border-right:  1px solid #A89060; }
 
-        /* Active: full gold frame + glowing corners */
+        /* Active: corners visible + glow */
         .pf-card[data-offset="0"] .pf-img-frame {
           filter: blur(0px) brightness(1.05);
-          border-color: rgba(168,144,96,0.55);
           box-shadow:
-            0 0 0 1px rgba(168,144,96,0.08),
             0 16px 48px rgba(0,0,0,0.60),
             0 0 28px rgba(168,144,96,0.12);
         }
         .pf-card[data-offset="0"] .pf-img-c { opacity: 1; }
 
-        /* ±1: faint gold, blurred */
+        /* ±1: blurred */
         .pf-card[data-offset="-1"] .pf-img-frame,
         .pf-card[data-offset="1"]  .pf-img-frame {
           filter: blur(2px) brightness(0.62);
-          border-color: rgba(168,144,96,0.10);
         }
         .pf-card[data-offset="-1"] .pf-img-c,
-        .pf-card[data-offset="1"]  .pf-img-c { opacity: 0.35; }
+        .pf-card[data-offset="1"]  .pf-img-c { opacity: 0.30; }
 
-        /* ±2: very faint, more blurred */
+        /* ±2: more blurred */
         .pf-card[data-offset="-2"] .pf-img-frame,
         .pf-card[data-offset="2"]  .pf-img-frame {
           filter: blur(4px) brightness(0.48);
-          border-color: rgba(168,144,96,0.05);
         }
 
         /* Hover lifts non-active slightly */
         .pf-card:not([data-offset="0"]):hover .pf-img-frame {
           filter: blur(1px) brightness(0.80);
-          border-color: rgba(168,144,96,0.22);
         }
 
         .pf-img-frame-inner img {
@@ -430,6 +433,14 @@ export default function PortfolioSection() {
         .pf-info-sep {
           color: #3A3A3A;
           margin: 0 8px;
+        }
+        .pf-info-materials {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 11px;
+          font-weight: 400;
+          color: #A89060;
+          letter-spacing: 0.10em;
+          margin-top: 4px;
         }
 
         /* ══ Navigation ══ */
@@ -839,10 +850,19 @@ export default function PortfolioSection() {
 
         {/* Active item info — updates on slide change */}
         <div className="pf-info" key={active}>
-          <span className="pf-info-badge">{lang === 'ar' ? cur.badgeAr : cur.badge}</span>
+          {(lang === 'ar' ? cur.badgeAr : cur.badge) && (
+            <span className="pf-info-badge">{lang === 'ar' ? cur.badgeAr : cur.badge}</span>
+          )}
+          {(lang === 'ar' ? cur.clientAr : cur.client) && (
+            <div className="pf-info-client" style={{justifyContent:'center'}}>{lang === 'ar' && cur.clientAr ? cur.clientAr : cur.client}</div>
+          )}
           <h3 className="pf-info-title">{lang === 'ar' ? cur.titleAr : cur.title}</h3>
-          <div className="pf-info-client">{cur.client}</div>
-          <p className="pf-info-meta">{lang === 'ar' ? cur.specsAr : cur.specs}</p>
+          <p className="pf-info-meta" style={{textAlign:'center'}}>{lang === 'ar' ? cur.specsAr : cur.specs}</p>
+          {(cur.materialsAr || cur.materials) && (
+            <p className="pf-info-materials" style={{textAlign:'center'}}>
+              {lang === 'ar' ? cur.materialsAr : cur.materials}
+            </p>
+          )}
 
           {cur.profileUrl && (
             <button

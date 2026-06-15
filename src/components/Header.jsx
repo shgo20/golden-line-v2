@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { key: 'contact',   href: '#contact'   },
 ];
 
-export default function Header() {
+export default function Header({ onJoin }) {
   const { lang, switchLang } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -300,6 +300,38 @@ export default function Header() {
           stroke-linecap: round;
         }
 
+        /* ── Join Us button ── */
+        .gl-join-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          padding: 8px 20px;
+          background: transparent;
+          border: 1px solid rgba(168,144,96,0.55);
+          border-radius: var(--r-btn, 8px);
+          color: #C8B080;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 0.20em;
+          text-transform: uppercase;
+          cursor: pointer;
+          text-decoration: none;
+          transition: background 0.28s, color 0.28s, border-color 0.28s,
+            transform 0.28s, box-shadow 0.28s;
+          white-space: nowrap;
+        }
+        .gl-join-btn:hover {
+          background: #A89060;
+          color: #0A0A0A;
+          border-color: #A89060;
+          transform: translateY(-1px);
+          box-shadow: 0 6px 20px rgba(168,144,96,0.28);
+        }
+        .gl-join-btn svg { width: 11px; height: 11px; opacity: 0.75; transition: opacity 0.24s; }
+        .gl-join-btn:hover svg { opacity: 1; }
+        @media (max-width: 768px) { .gl-join-btn { display: none; } }
+
         @media (max-width: 1024px) {
           .gl-nav { display: none; }
           .gl-burger { display: flex; }
@@ -346,10 +378,20 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="gl-lang" role="button" tabIndex={0} aria-label="Switch language" onClick={toggleLang} onKeyDown={e => e.key === 'Enter' && toggleLang()}>
-          <span className={lang === 'en' ? 'gl-lang-active' : 'gl-lang-other'}>EN</span>
-          <span className="gl-lang-sep">|</span>
-          <span className={lang === 'ar' ? 'gl-lang-active' : 'gl-lang-other'}>AR</span>
+        <div style={{display:'flex', alignItems:'center', gap:'16px'}}>
+          <button className="gl-join-btn" onClick={onJoin}>
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.4">
+              <circle cx="6" cy="4" r="2.2"/>
+              <path d="M1.5 10.5c0-2.2 2-4 4.5-4s4.5 1.8 4.5 4" strokeLinecap="round"/>
+            </svg>
+            {lang === 'ar' ? 'انضم إلينا' : 'Join Us'}
+          </button>
+
+          <div className="gl-lang" role="button" tabIndex={0} aria-label="Switch language" onClick={toggleLang} onKeyDown={e => e.key === 'Enter' && toggleLang()}>
+            <span className={lang === 'en' ? 'gl-lang-active' : 'gl-lang-other'}>EN</span>
+            <span className="gl-lang-sep">|</span>
+            <span className={lang === 'ar' ? 'gl-lang-active' : 'gl-lang-other'}>AR</span>
+          </div>
         </div>
 
         <button
@@ -373,6 +415,12 @@ export default function Header() {
         {NAV_LINKS.map(l => (
           <a key={l.href} href={l.href} onClick={close}>{tr(T.nav[l.key], lang)}</a>
         ))}
+        <button
+          onClick={() => { close(); onJoin && onJoin(); }}
+          style={{background:'transparent', border:'1px solid rgba(168,144,96,0.55)', borderRadius:'var(--r-btn,8px)', color:'#C8B080', fontFamily:'inherit', fontSize:'20px', fontWeight:'300', letterSpacing:'0.08em', textTransform:'uppercase', padding:'10px 32px', cursor:'pointer'}}
+        >
+          {lang === 'ar' ? 'انضم إلينا' : 'Join Us'}
+        </button>
       </nav>
     </>
   );

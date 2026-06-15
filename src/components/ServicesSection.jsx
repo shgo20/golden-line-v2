@@ -6,12 +6,13 @@ import { T, tr } from '../lib/translations';
 
 const SERVICES = [
   {
-    label: 'Shields & Plaques',      labelAr: 'الدروع والألواح',
-    title: 'Shields & Commemorative Plaques', titleAr: 'الدروع والألواح التذكارية',
+    label: 'Shields & Plaques',      labelAr: 'الدروع التذكارية',
+    title: 'Shields & Commemorative Plaques', titleAr: 'الدروع التذكارية',
     imgSrc: '/images/SLAUDER-01.jpg', imgAlt: 'Metal shields and plaques',
     desc: 'Custom-designed metal shields in gold, silver & chrome — precision engraved and luxury packaged for any occasion.',
     descAr: 'دروع معدنية مصممة خصيصاً بتشطيبات الذهب والفضة والكروم — منقوشة بدقة ومعبأة بأسلوب فاخر لكل مناسبة.',
     icon: '🏅',
+    profileUrl: '/images/services1.pdf',
   },
   {
     label: 'Trophies & Medals',      labelAr: 'الكؤوس والميداليات',
@@ -20,6 +21,7 @@ const SERVICES = [
     desc: 'Premium metal trophies and custom sports medals in multiple sizes — gold, silver, nickel & chrome plating available.',
     descAr: 'كؤوس معدنية فاخرة وميداليات رياضية مخصصة بأحجام متعددة — طلاء ذهبي وفضي ونيكل وكروم.',
     icon: '🏆',
+    profileUrl: '/images/services2.pdf',
   },
   {
     label: 'Custom Gifts',           labelAr: 'الهدايا المخصصة',
@@ -28,22 +30,16 @@ const SERVICES = [
     desc: 'Official government gifts, 3D sculptures, branded metal logos — fully bespoke, end-to-end luxury solutions.',
     descAr: 'هدايا حكومية رسمية ومجسمات ثلاثية الأبعاد وشعارات معدنية مخصصة — حلول فاخرة متكاملة.',
     icon: '🎁',
+    profileUrl: '/images/services3.pdf',
   },
   {
-    label: 'Metal Decor',            labelAr: 'الديكور المعدني',
-    title: 'Metal Decor & Signage',  titleAr: 'الديكور المعدني واللافتات',
-    imgSrc: '/images/SLAUDER-04.jpg', imgAlt: 'Metal decor and signage',
-    desc: 'Corporate signage, metal facades for offices and exhibitions — weather-resistant finishes to exact specifications.',
-    descAr: 'لافتات مؤسسية وواجهات معدنية للمكاتب والمعارض — تشطيبات مقاومة للعوامل الجوية وفق المواصفات الدقيقة.',
+    label: 'Metal Sculptures & Facades', labelAr: 'المجسمات المعدنية والبنايات',
+    title: 'Metal Sculptures & Building Facades', titleAr: 'المجسمات المعدنية وواجهات البنايات',
+    imgSrc: '/images/SLAUDER-04.jpg', imgAlt: 'Custom metal sculptures and facades',
+    desc: 'Handcrafted 3D metal sculptures, building facades, and decorative cladding — bespoke pieces that reflect identity and prestige.',
+    descAr: 'مجسمات معدنية ثلاثية الأبعاد وواجهات بنايات وكسوة معمارية مخصصة — قطع فريدة تعكس الهوية والمكانة.',
     icon: '🏛',
-  },
-  {
-    label: '3D Manufacturing',       labelAr: 'التصنيع ثلاثي الأبعاد',
-    title: '3D Design & Custom Manufacturing', titleAr: 'التصميم ثلاثي الأبعاد والتصنيع المخصص',
-    imgSrc: '/images/SLAUDER-05.jpg', imgAlt: '3D design and manufacturing',
-    desc: 'Pre-production 3D renders, one-of-a-kind metal pieces, national and sports event projects — quality assured.',
-    descAr: 'نماذج ثلاثية الأبعاد قبل الإنتاج، قطع معدنية فريدة، مشاريع الفعاليات الوطنية والرياضية — بجودة مضمونة.',
-    icon: '⚙️',
+    profileUrl: '/images/services4.pdf',
   },
   {
     label: 'Awards & Medals',        labelAr: 'الجوائز والأوسمة',
@@ -52,6 +48,7 @@ const SERVICES = [
     desc: 'Bespoke recognition awards for government, corporate, and sports events — premium finishes to brief.',
     descAr: 'جوائز تكريم مخصصة للفعاليات الحكومية والمؤسسية والرياضية — تشطيبات فاخرة وفق المتطلبات.',
     icon: '🎖',
+    profileUrl: '/images/services6.pdf',
   },
   {
     label: 'Luxury Gifts',           labelAr: 'الهدايا الفاخرة',
@@ -60,6 +57,7 @@ const SERVICES = [
     desc: 'Exclusive metal gifts for VIP occasions and official delegations — crafted to the highest luxury standards.',
     descAr: 'هدايا معدنية حصرية للمناسبات البروتوكولية والوفود الرسمية — مصنوعة وفق أعلى معايير الفخامة.',
     icon: '✨',
+    profileUrl: '/images/services7.pdf',
   },
 ];
 
@@ -200,7 +198,7 @@ export default function ServicesSection() {
         .sv1-panel {
           flex:1; padding-left:52px;
           display:flex; flex-direction:column; justify-content:center;
-          gap:28px;
+          gap:20px;
         }
         .sv1-img-wrap {
           position:relative; width:100%; aspect-ratio:16/9;
@@ -222,26 +220,133 @@ export default function ServicesSection() {
           width:24px; height:24px; z-index:2;
           border-bottom:2px solid #A89060; border-right:2px solid #A89060;
         }
+
+        /* ── Info block — centered ── */
+        .sv1-info {
+          display:flex; flex-direction:column; align-items:center;
+          text-align:center; gap:8px;
+          padding:0 8px;
+        }
+        .sv1-info-divider {
+          width:32px; height:1px;
+          background:linear-gradient(90deg, transparent, #A89060, transparent);
+          margin:2px 0;
+        }
         .sv1-detail-title {
-          font-family:'DM Sans',sans-serif; font-size:20px; font-weight:300;
+          font-family:'DM Sans',sans-serif; font-size:17px; font-weight:300;
           color:#F0EDE6; letter-spacing:-.01em;
         }
         .sv1-detail-title strong { color:#A89060; font-weight:600; }
         .sv1-detail-desc {
-          font-family:'DM Sans',sans-serif; font-size:13px; font-weight:300;
-          color:#888070; line-height:1.85; max-width:480px;
+          font-family:'DM Sans',sans-serif; font-size:9px; font-weight:300;
+          color:#666058; line-height:1.70;
         }
-        .sv1-arrow-row {
-          display:flex; gap:10px;
+        .sv1-controls-row {
+          display:flex; align-items:center; justify-content:center;
+          gap:12px;
         }
         .sv1-arrow {
-          width:38px; height:38px; border:1px solid rgba(168,144,96,.30);
+          width:36px; height:36px; border:1px solid rgba(168,144,96,.30);
           background:transparent; color:#888070; cursor:pointer;
           display:flex; align-items:center; justify-content:center;
-          transition:all .25s;
+          transition:all .25s; flex-shrink:0;
         }
         .sv1-arrow:hover { border-color:#A89060; color:#A89060; }
-        .sv1-arrow svg { width:13px; height:13px; }
+        .sv1-arrow svg { width:12px; height:12px; }
+
+        /* ── divider between arrows and button ── */
+        .sv1-ctrl-sep {
+          width:1px; height:24px;
+          background:rgba(168,144,96,.18); flex-shrink:0;
+        }
+
+        /* ── Profile CTA button — full-width centered block ── */
+        .sv-profile-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 9px;
+          width: 100%;
+          padding: 14px 24px;
+          background: transparent;
+          border: 1px solid rgba(168,144,96,0.55);
+          border-radius: var(--r-btn, 8px);
+          color: rgba(168,144,96,0.75);
+          font-family: 'DM Sans', sans-serif;
+          font-size: 16px;
+          font-weight: 500;
+          letter-spacing: 0.16em;
+          color: #F0EDE6;
+          text-transform: uppercase;
+          cursor: pointer;
+          text-decoration: none;
+          transition:
+            background    0.28s ease,
+            color         0.28s ease,
+            border-color  0.28s ease,
+            transform     0.28s ease,
+            box-shadow    0.28s ease;
+        }
+        .sv-profile-btn:hover {
+          background: #A89060;
+          color: #0A0A0A;
+          border-color: #A89060;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(168,144,96,0.26);
+        }
+        .sv-profile-btn svg { width:12px; height:12px; opacity:.65; transition:opacity .24s; }
+        .sv-profile-btn:hover svg { opacity:1; }
+
+        /* ── Image hover overlay CTA — same style as Portfolio ── */
+        .sv1-img-overlay {
+          position: absolute;
+          inset: 0;
+          z-index: 3;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          padding-bottom: 22px;
+          background: rgba(0,0,0,0);
+          opacity: 0;
+          pointer-events: none;
+          transition: background 0.32s ease, opacity 0.32s ease;
+        }
+        .sv1-img-wrap:hover .sv1-img-overlay {
+          background: rgba(0,0,0,0.18);
+          opacity: 1;
+          pointer-events: auto;
+        }
+        .sv1-img-overlay-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          padding: 9px 22px;
+          background: rgba(10,10,10,0.72);
+          border: 1px solid #A89060;
+          border-radius: var(--r-btn, 8px);
+          color: #A89060;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 10px;
+          font-weight: 500;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          text-decoration: none;
+          cursor: pointer;
+          transform: translateY(10px);
+          transition: background 0.28s ease, color 0.28s ease,
+            transform 0.28s ease, box-shadow 0.28s ease;
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
+        }
+        .sv1-img-wrap:hover .sv1-img-overlay-btn { transform: translateY(0); }
+        .sv1-img-overlay-btn:hover {
+          background: #A89060;
+          color: #0A0A0A;
+          transform: translateY(-2px) !important;
+          box-shadow: 0 8px 24px rgba(168,144,96,0.32);
+        }
+        .sv1-img-overlay-btn svg { width:11px; height:11px; opacity:.80; transition:opacity .24s; }
+        .sv1-img-overlay-btn:hover svg { opacity:1; }
 
         @media(max-width:900px) {
           .sv1 { flex-direction:column; }
@@ -518,25 +623,62 @@ export default function ServicesSection() {
                   src={SERVICES[active].imgSrc}
                   alt={SERVICES[active].imgAlt}
                 />
+                {/* Hover overlay CTA on the image */}
+                {SERVICES[active].profileUrl && (
+                  <div className="sv1-img-overlay">
+                    <a
+                      className="sv1-img-overlay-btn"
+                      href={SERVICES[active].profileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.4">
+                        <rect x="1" y="1" width="10" height="10" rx="1"/>
+                        <path d="M3.5 4.5h5M3.5 6.5h5M3.5 8.5h3" strokeLinecap="round"/>
+                      </svg>
+                      {lang === 'ar' ? 'عرض ملف الخدمة' : 'View Service Profile'}
+                    </a>
+                  </div>
+                )}
               </div>
-              <div>
+
+              <div className="sv1-info">
+                <div className="sv1-info-divider" />
                 <div className="sv1-detail-title">
                   {lang === 'ar' ? SERVICES[active].titleAr : SERVICES[active].title}
                 </div>
                 <p className="sv1-detail-desc">{lang === 'ar' ? SERVICES[active].descAr : SERVICES[active].desc}</p>
               </div>
-              <div className="sv1-arrow-row">
-                <button className="sv1-arrow" onClick={prev} aria-label="Previous">
+
+              <div className="sv1-controls-row">
+                <button className="sv1-arrow" onClick={next} aria-label="Next">
                   <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M9 2L4 7l5 5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </button>
-                <button className="sv1-arrow" onClick={next} aria-label="Next">
+                <button className="sv1-arrow" onClick={prev} aria-label="Previous">
                   <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <path d="M5 2l5 5-5 5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </button>
               </div>
+
+              {SERVICES[active].profileUrl && (
+                <a
+                  className="sv-profile-btn"
+                  href={SERVICES[active].profileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.4">
+                    <rect x="1" y="1" width="10" height="10" rx="1"/>
+                    <path d="M3.5 4.5h5M3.5 6.5h5M3.5 8.5h3" strokeLinecap="round"/>
+                  </svg>
+                  {lang === 'ar'
+                    ? `شاهد ${SERVICES[active].labelAr}`
+                    : `View ${SERVICES[active].label}`}
+                </a>
+              )}
             </div>
           </div>
         )}
@@ -575,6 +717,23 @@ export default function ServicesSection() {
                   <span className="sv3-num">0{i + 1} / 0{N} — {lang === 'ar' ? s.labelAr : s.label}</span>
                   <h3 className="sv3-title">{lang === 'ar' ? s.titleAr : s.title}</h3>
                   <p className="sv3-desc">{lang === 'ar' ? s.descAr : s.desc}</p>
+                  {s.profileUrl && (
+                    <a
+                      className="sv-profile-btn"
+                      href={s.profileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ marginTop: '20px' }}
+                    >
+                      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.4">
+                        <rect x="1" y="1" width="10" height="10" rx="1"/>
+                        <path d="M3.5 4.5h5M3.5 6.5h5M3.5 8.5h3" strokeLinecap="round"/>
+                      </svg>
+                      {lang === 'ar'
+                        ? `شاهد ${s.labelAr}`
+                        : `View ${s.label}`}
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
