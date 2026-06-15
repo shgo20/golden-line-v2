@@ -155,6 +155,7 @@ export default function CTASection() {
           src={images.cta}
           alt="Golden Line trophies"
           className="cta-img"
+          style={lang === 'ar' ? { transform: 'scaleX(-1)' } : undefined}
         />
       </section>
     </>
