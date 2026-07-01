@@ -838,8 +838,8 @@ export default function PortfolioSection() {
                       {offset !== 0 && (
                         <span className="pf-card-label">{lang === 'ar' ? item.badgeAr : item.badge}</span>
                       )}
-                      {/* Hover overlay with CTA — center card only */}
-                      {offset === 0 && item.profileUrl && (
+                      {/* Hover overlay with CTA — مخفي مؤقتاً */}
+                      {false && offset === 0 && item.profileUrl && (
                         <div className="pf-img-overlay">
                           <button
                             className="pf-img-overlay-btn"
@@ -878,7 +878,8 @@ export default function PortfolioSection() {
             </p>
           )}
 
-          {cur.profileUrl && (
+          {/* زر عرض ملف المشروع — مخفي مؤقتاً */}
+          {false && cur.profileUrl && (
             <button
               className="pf-profile-btn"
               onClick={() => openModal(cur)}
