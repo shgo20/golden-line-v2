@@ -751,29 +751,41 @@ export default function PortfolioSection() {
 
         /* ── Responsive ── */
         @media (max-width: 1100px) {
-          .pf-stage { height: 510px; }
-          .pf-card { width: 240px; }
-          .pf-card[data-offset="0"]  { transform: translateX(0)      rotateY(0deg)   scale(2.08); }
-          .pf-card[data-offset="-1"] { transform: translateX(-320px) rotateY(28deg)  scale(0.84); }
-          .pf-card[data-offset="1"]  { transform: translateX(320px)  rotateY(-28deg) scale(0.84); }
-          .pf-card[data-offset="-2"] { transform: translateX(-560px) rotateY(40deg)  scale(0.65); }
-          .pf-card[data-offset="2"]  { transform: translateX(560px)  rotateY(-40deg) scale(0.65); }
+          .pf-stage { height: 460px; }
+          .pf-card { width: 210px; }
+          .pf-card[data-offset="0"]  { transform: translateX(0)      rotateY(0deg)   scale(1.80); }
+          .pf-card[data-offset="-1"] { transform: translateX(-290px) rotateY(28deg)  scale(0.82); }
+          .pf-card[data-offset="1"]  { transform: translateX(290px)  rotateY(-28deg) scale(0.82); }
+          .pf-card[data-offset="-2"] { transform: translateX(-510px) rotateY(40deg)  scale(0.62); }
+          .pf-card[data-offset="2"]  { transform: translateX(510px)  rotateY(-40deg) scale(0.62); }
+        }
+        /* ── iPad portrait (768–1024px) ── */
+        @media (max-width: 1024px) and (min-width: 769px) {
+          .pf { padding: 80px 0 0; }
+          .pf-stage { height: 400px; }
+          .pf-card { width: 190px; }
+          .pf-card[data-offset="0"]  { transform: translateX(0)      rotateY(0deg)   scale(1.60); }
+          .pf-card[data-offset="-1"] { transform: translateX(-260px) rotateY(26deg)  scale(0.80); }
+          .pf-card[data-offset="1"]  { transform: translateX(260px)  rotateY(-26deg) scale(0.80); }
+          .pf-card[data-offset="-2"] { transform: translateX(-460px) rotateY(38deg)  scale(0.60); }
+          .pf-card[data-offset="2"]  { transform: translateX(460px)  rotateY(-38deg) scale(0.60); }
+          .pf-info { padding: 24px 5% 0; }
+          .pf-controls { padding: 20px 0 40px; }
         }
         @media (max-width: 768px) {
           .pf { padding: 80px 0 0; }
-          .pf-stage { height: 460px; }
-          .pf-card { width: 200px; }
-          .pf-card[data-offset="0"]  { transform: translateX(0)       rotateY(0deg)   scale(1.98); }
-          .pf-card[data-offset="-1"] { transform: translateX(-260px)  rotateY(22deg)  scale(0.82); opacity: 0.45; }
-          .pf-card[data-offset="1"]  { transform: translateX(260px)   rotateY(-22deg) scale(0.82); opacity: 0.45; }
+          .pf-stage { height: 380px; }
+          .pf-card { width: 180px; }
+          .pf-card[data-offset="0"]  { transform: translateX(0)       rotateY(0deg)   scale(1.70); }
+          .pf-card[data-offset="-1"] { transform: translateX(-240px)  rotateY(22deg)  scale(0.80); opacity: 0.45; }
+          .pf-card[data-offset="1"]  { transform: translateX(240px)   rotateY(-22deg) scale(0.80); opacity: 0.45; }
           .pf-card[data-offset="-2"], .pf-card[data-offset="2"] { opacity: 0; pointer-events: none; }
-
         }
         @media (max-width: 480px) {
           .pf-stage { height: 260px; }
-          .pf-card { width: 170px; }
-          .pf-card[data-offset="-1"] { transform: translateX(-178px) rotateY(22deg) scale(0.82); }
-          .pf-card[data-offset="1"]  { transform: translateX(178px)  rotateY(-22deg) scale(0.82); }
+          .pf-card { width: 160px; }
+          .pf-card[data-offset="-1"] { transform: translateX(-172px) rotateY(22deg) scale(0.80); }
+          .pf-card[data-offset="1"]  { transform: translateX(172px)  rotateY(-22deg) scale(0.80); }
         }
       `}</style>
 
@@ -785,7 +797,9 @@ export default function PortfolioSection() {
         <div className="pf-header">
           <span className="pf-eyebrow">{tr(T.portfolio.eyebrow, lang)}</span>
           <h2 className="pf-title">{tr(T.portfolio.title, lang)}</h2>
-          <p className="pf-subtitle">{tr(T.portfolio.subtitle, lang)}</p>
+          {tr(T.portfolio.subtitle, lang).split('\n\n').map((para, i) => (
+            <p key={i} className="pf-subtitle" style={i > 0 ? {marginTop:'12px'} : undefined}>{para}</p>
+          ))}
         </div>
 
         {/* Cover Flow Stage */}

@@ -59,8 +59,8 @@ export const T = {
     eyebrow:     { en: 'Portfolio', ar: 'معرض الأعمال'  },
     title:       { en: 'Our Work',  ar: 'أعمالنا'        },
     subtitle: {
-      en: 'A curated selection reflecting our expertise in premium metal trophies, medals, plaques, and gifts for government, sports, and corporate clients across Saudi Arabia.',
-      ar: 'مجموعة مختارة تعكس خبرتنا في صناعة الجوائز والدروع والميداليات والهدايا المعدنية الفاخرة لعملاء حكوميين ورياضيين ومؤسسيين في أرجاء المملكة العربية السعودية.',
+      en: 'We take pride in that our work has been part of exceptional moments — documenting achievements and honoring those behind them. In this gallery, we present a curated selection of trophies, shields, sculptures, and luxury commemorative gifts designed and crafted with care to reflect the value of the occasion and the identity of the entity behind it.',
+      ar: 'نفخر بأن أعمالنا كانت جزءًا من لحظات استثنائية توثّق إنجازًا، وتكرّم أصحابه.\n\nفي هذا المعرض نستعرض مجموعة مختارة من الكؤوس، والدروع، والمجسمات، والهدايا التذكارية الفاخرة التي صُممت ونُفذت بعناية لتعكس قيمة المناسبة وهوية الجهة التي تقف خلفها.',
     },
     viewProfile: { en: 'View Project Profile', ar: 'عرض ملف المشروع' },
   },

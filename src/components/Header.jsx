@@ -415,12 +415,27 @@ export default function Header({ onJoin }) {
         {NAV_LINKS.map(l => (
           <a key={l.href} href={l.href} onClick={close}>{tr(T.nav[l.key], lang)}</a>
         ))}
+
         <button
           onClick={() => { close(); onJoin && onJoin(); }}
           style={{background:'transparent', border:'1px solid rgba(168,144,96,0.55)', borderRadius:'var(--r-btn,8px)', color:'#C8B080', fontFamily:'inherit', fontSize:'20px', fontWeight:'300', letterSpacing:'0.08em', textTransform:'uppercase', padding:'10px 32px', cursor:'pointer'}}
         >
           {lang === 'ar' ? 'انضم إلينا' : 'Join Us'}
         </button>
+
+        {/* ── مفتاح اللغة داخل القائمة المتنقلة ── */}
+        <div
+          role="button"
+          tabIndex={0}
+          aria-label="Switch language"
+          onClick={toggleLang}
+          onKeyDown={e => e.key === 'Enter' && toggleLang()}
+          style={{display:'flex', alignItems:'center', gap:'10px', cursor:'pointer', marginTop:'8px'}}
+        >
+          <span style={{fontFamily:'DM Sans,sans-serif', fontSize:'16px', letterSpacing:'0.14em', fontWeight: lang==='en' ? '600' : '400', color: lang==='en' ? '#A89060' : '#555'}}>EN</span>
+          <span style={{color:'#333', fontSize:'14px'}}>|</span>
+          <span style={{fontFamily:'DM Sans,sans-serif', fontSize:'16px', letterSpacing:'0.14em', fontWeight: lang==='ar' ? '600' : '400', color: lang==='ar' ? '#A89060' : '#555'}}>AR</span>
+        </div>
       </nav>
     </>
   );
